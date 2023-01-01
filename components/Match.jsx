@@ -1,18 +1,13 @@
 import React from "react";
 import ItemIcon from "./ItemIcon";
-
+import { getItems } from "../utils/itemFunctions";
 const Match = ({ build, champion, kda }) => {
-  const trinket = build.pop();
-
-  //add null value that will be replaced as placeholder box if player didn't use all 6 inventory space
-  for (let i = build.length; i < 6; i++) {
-    build.push(null);
-  }
+  const [items, trinket] = getItems(build);
   return (
     <div className="card bg-base-100 shadow-xl mb-2">
       <div className="card-body">
         <div>
-          kda {kda.k}/{kda.d}/{kda.a}
+          KDA {kda.k}/{kda.d}/{kda.a}
         </div>
         <div className="flex items-center ">
           <div className="avatar">
@@ -21,7 +16,7 @@ const Match = ({ build, champion, kda }) => {
             </div>
           </div>
           <div className="grid-cols-3 grid gap-1 w-40">
-            {build.map((item, i) => (
+            {items.map((item, i) => (
               <div className="avatar" key={i}>
                 <div className="w-12 h-12 rounded">
                   <ItemIcon item={item} />

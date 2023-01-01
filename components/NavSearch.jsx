@@ -1,20 +1,28 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 const NavSearch = () => {
   const [username, setUsername] = useState("");
-  const [selectedServer, setSelectedServer] = useState(0);
+  const [server, setServer] = useState("EUW");
+  const router = useRouter();
+
   const handleTextChange = (e) => {
     setUsername(e.target.value);
   };
   const handleSelect = (e) => {
-    setSelectedServer(e.target.value);
+    setServer(e.target.value);
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      router.push(`${server}/${username}`);
+    }
   };
   return (
     <>
       <select
         className="select select-bordered w-4/12 max-w-xs"
-        value={selectedServer}
+        value={server}
         onChange={handleSelect}
       >
         <option>EUW</option>
@@ -37,6 +45,7 @@ const NavSearch = () => {
           className="input input-bordered w-auto"
           value={username}
           onChange={handleTextChange}
+          onKeyDown={handleKeyDown}
         />
       </div>
     </>
