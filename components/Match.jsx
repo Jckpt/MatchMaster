@@ -4,7 +4,7 @@ import { getItems } from "../utils/itemFunctions";
 const Match = ({ build, champion, kda }) => {
   const [items, trinket] = getItems(build);
   return (
-    <div className="card bg-base-100 shadow-xl mb-2">
+    <div className="card bg-base-100 shadow-xl mb-2 w-full">
       <div className="card-body">
         <div>
           KDA {kda.k}/{kda.d}/{kda.a}
