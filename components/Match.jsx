@@ -1,10 +1,20 @@
 import React from "react";
 import ItemIcon from "./ItemIcon";
 import { getItems } from "../utils/itemFunctions";
-const Match = ({ build, champion, kda }) => {
-  const [items, trinket] = getItems(build);
+import { getGameData } from "../utils/gameData";
+import { getChampionName } from "../utils/getChampionName";
+const Match = async ({
+  match: {
+    subject: { kda, finalBuild, championId },
+  },
+  username,
+  server,
+}) => {
+  const [items, trinket] = getItems(finalBuild);
+  const gameData = await getGameData(username, server);
+  const slug = getChampionName(gameData, championId);
   return (
-    <div className="card bg-base-100 shadow-xl mb-2 w-full">
+    <div className="card bg-base-100 shadow-xl mb-3 w-full">
       <div className="card-body">
         <div>
           KDA {kda.k}/{kda.d}/{kda.a}
@@ -12,7 +22,11 @@ const Match = ({ build, champion, kda }) => {
         <div className="flex items-center ">
           <div className="avatar">
             <div className="w-12 h-12 rounded-full mr-3">
-              <img alt="" src={champion} />
+              <img
+                alt=""
+                samesite="None"
+                src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
+              />
             </div>
           </div>
           <div className="grid-cols-3 grid gap-1 w-40">

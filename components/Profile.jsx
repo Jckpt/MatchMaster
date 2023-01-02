@@ -2,7 +2,7 @@ import React from "react";
 
 const Profile = () => {
   return (
-    <div className="card w-full mb-6 bg-base-100 shadow-xl">
+    <div className="card w-full mb-4 bg-base-100 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">Card title!</h2>
         <p>If a dog chews shoes whose shoes does he choose?</p>
