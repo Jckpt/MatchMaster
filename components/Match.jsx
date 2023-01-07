@@ -1,7 +1,6 @@
 import React from "react";
 import ItemIcon from "./ItemIcon";
 import { getItems } from "../utils/itemFunctions";
-import { getGameData } from "../utils/gameData";
 import { getChampionName } from "../utils/getChampionName";
 const Match = async ({
   match: {
@@ -11,8 +10,7 @@ const Match = async ({
   server,
 }) => {
   const [items, trinket] = getItems(finalBuild);
-  const gameData = await getGameData(username, server);
-  const slug = getChampionName(gameData, championId);
+  const slug = await getChampionName(championId);
   return (
     <div className="card bg-base-100 shadow-xl mb-3 w-full">
       <div className="card-body">
@@ -24,7 +22,7 @@ const Match = async ({
             <div className="w-12 h-12 rounded-full mr-3">
               <img
                 alt=""
-                samesite="None"
+                samesite="Strict"
                 src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
               />
             </div>

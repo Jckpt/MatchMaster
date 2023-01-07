@@ -20,7 +20,22 @@ export const getUserData = async (summonerName, server) => {
       SameSite: "None",
       referrer: `https://app.mobalytics.gg/lol/profile/${server}/${summonerName}/overview`,
       referrerPolicy: "strict-origin-when-cross-origin",
-      body: `{"operationName":"LolProfilePageSummonerOverviewQuery","variables":{"top":10,"withMatchParticipantDetailed":false,"summonerName":"${summonerName}","region":"${server.toUpperCase()}","cChampionId":null,"cQueue":null,"cRolename":null,"cSeasonId":null,"skip":0},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"b40d1611a6d63e0750102f3860585d87fda084d15f083b1948e45056522ed724"}}}`,
+      body: `{"operationName":
+      "LolProfilePageSummonerOverviewQuery",
+      "variables":{
+        "top":10,
+      "withMatchParticipantDetailed":false,
+      "summonerName":"${summonerName}",
+      "region":"${server.toUpperCase()}",
+      "cChampionId":null,
+      "cQueue":null,
+      "cRolename":null,
+      "cSeasonId":null,
+      "skip":0},
+      "extensions":{
+        "persistedQuery":{
+          "version":1,
+          "sha256Hash":"b40d1611a6d63e0750102f3860585d87fda084d15f083b1948e45056522ed724"}}}`,
       method: "POST",
       mode: "cors",
       credentials: "include",

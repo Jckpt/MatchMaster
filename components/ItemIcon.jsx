@@ -8,8 +8,8 @@ const ItemIcon = ({ item }) => {
       ) : (
         <img
           alt=""
-          samesite="None"
-          src={`http://ddragon.leagueoflegends.com/cdn/12.23.1/img/item/${item}.png`}
+          samesite="Strict"
+          src={`https://cdn.mobalytics.gg/assets/lol/images/dd/game-items/${item}.png`}
         />
       )}
     </>
