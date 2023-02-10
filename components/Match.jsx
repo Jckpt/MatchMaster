@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import ItemIcon from "./ItemIcon";
 import { getItems } from "../utils/itemFunctions";
 import { getChampionName } from "../utils/getChampionName";
@@ -6,8 +7,6 @@ const Match = async ({
   match: {
     subject: { kda, finalBuild, championId },
   },
-  username,
-  server,
 }) => {
   const [items, trinket] = getItems(finalBuild);
   const slug = await getChampionName(championId);
@@ -20,10 +19,12 @@ const Match = async ({
         <div className="flex items-center ">
           <div className="avatar">
             <div className="w-12 h-12 rounded-full mr-3">
-              <img
+              <Image
                 alt=""
                 samesite="Strict"
                 src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
+                height={48}
+                width={48}
               />
             </div>
           </div>

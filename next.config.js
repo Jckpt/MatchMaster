@@ -4,6 +4,16 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cdn.mobalytics.gg",
+        port: "",
+        pathname: "/assets/lol/images/**",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

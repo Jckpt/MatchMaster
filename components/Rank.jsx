@@ -1,16 +1,39 @@
 import React from "react";
-
-const Rank = () => {
+import { summonerData } from "../utils/gameData";
+const Rank = async ({ username, server }) => {
+  const {
+    data: {
+      lol: {
+        player: {
+          queuesStats: {
+            items: [
+              {
+                rank: { tier, division },
+                queue,
+                lp,
+                wins,
+                winrate,
+                gamesCount,
+                losses,
+              },
+            ],
+          },
+        },
+      },
+    },
+  } = await summonerData(username, server);
   return (
     <div className="card w-full mb-4 bg-base-100 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title">Ranga</h2>
+        <h2 className="card-title">
+          {tier} {division}
+        </h2>
+        <p>queue: {queue}</p>
+        <p>{lp} LP</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-          laudantium aliquid consectetur at autem veritatis inventore iste fugit
-          asperiores nulla, nam temporibus blanditiis neque ullam eius vero
-          ipsam tempora nostrum?
+          {wins}W {losses}L {(winrate * 100).toFixed(2)}% winrate
         </p>
+        <p>Games count: {gamesCount}</p>
       </div>
     </div>
   );
