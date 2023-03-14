@@ -34,7 +34,11 @@ const Match = async ({
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
             <div className="avatar">
-              <div className="w-12 h-12 rounded-full mr-3">
+              <div
+                className={`w-12 h-12 rounded-full border-2 ${
+                  matchResult === "WON" ? "border-blue-500" : "border-red-500"
+                } mr-3`}
+              >
                 <Image
                   alt=""
                   samesite="Strict"
