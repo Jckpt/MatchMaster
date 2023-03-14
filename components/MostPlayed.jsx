@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { summonerData } from "../utils/gameData";
 const MostPlayed = async ({ username, server }) => {
   const {

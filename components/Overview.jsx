@@ -16,6 +16,7 @@ const Overview = async ({ username, server }) => {
       },
     },
   } = await getUserData(username, server);
+  console.log(matches[1]);
   //const matchHistory = data.data.lol.player.matchesHistory.matches[0].subject;
   return (
     <div className="flex flex-col w-full h-full">

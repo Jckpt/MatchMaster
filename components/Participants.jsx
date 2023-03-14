@@ -3,7 +3,7 @@ import { getChampionName } from "../utils/getChampionName";
 import Image from "next/image";
 const Participants = async ({ participants }) => {
   return (
-    <div>
+    <div className="grid grid-flow-col grid-rows-5">
       {participants?.map(({ championId, summonerName, team }, i) => (
         <Summoner
           championId={championId}
@@ -19,7 +19,7 @@ const Participants = async ({ participants }) => {
 const Summoner = async ({ championId, summonerName, team }) => {
   const slug = await getChampionName(championId);
   return (
-    <div>
+    <div className="pr-1 pb-1">
       <div className="avatar">
         <div className="w-6 h-6 rounded">
           <Image
@@ -31,7 +31,7 @@ const Summoner = async ({ championId, summonerName, team }) => {
           />
         </div>
       </div>
-      {summonerName}
+      {summonerName.substring(0, 5)}...
     </div>
   );
 };
