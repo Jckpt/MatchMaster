@@ -19,7 +19,7 @@ const Participants = async ({ participants }) => {
 const Summoner = async ({ championId, summonerName, team }) => {
   const slug = await getChampionName(championId);
   return (
-    <div className="pr-1 pb-1">
+    <div className="pr-1 pb-1 hidden md:block">
       <div className="avatar">
         <div className="w-6 h-6 rounded">
           <Image

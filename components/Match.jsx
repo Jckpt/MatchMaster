@@ -30,14 +30,14 @@ const Match = async ({
       }
       `}
     >
-      <div className="card-body p-1">
+      <div className="card-body pt-7 pb-7 md:p-1">
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
             <div className="avatar">
               <div
                 className={`w-12 h-12 rounded-full border-2 ${
                   matchResult === "WON" ? "border-blue-500" : "border-red-500"
-                } mr-3`}
+                } mr-2`}
               >
                 <Image
                   alt=""
