@@ -15,17 +15,15 @@ const MostPlayed = async ({ username, server }) => {
     <div className="card w-full mb-4 bg-base-100 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">Most played</h2>
-        <p>
-          {mostPlayedChampions.map(
-            ({ championId, kda, csm, wins, looses, kp }, i) => (
-              <p key={i}>
-                {championId} {wins}W {looses}L {kda.k.toFixed(1)}/
-                {kda.d.toFixed(1)}/{kda.a.toFixed(1)} {csm.toFixed(1)} CS/M{" "}
-                {kp.toFixed(1)}
-              </p>
-            )
-          )}
-        </p>
+        {mostPlayedChampions.map(
+          ({ championId, kda, csm, wins, looses, kp }, i) => (
+            <div key={i}>
+              {championId} {wins}W {looses}L {kda.k.toFixed(1)}/
+              {kda.d.toFixed(1)}/{kda.a.toFixed(1)} {csm.toFixed(1)} CS/M{" "}
+              {kp.toFixed(1)}
+            </div>
+          )
+        )}
       </div>
     </div>
   );

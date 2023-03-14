@@ -1,10 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import ItemIcon from "./ItemIcon";
+import Participants from "./Participants";
 import { getItems } from "../utils/itemFunctions";
 import { getChampionName } from "../utils/getChampionName";
 const Match = async ({
   match: {
+    participants,
     subject: { kda, finalBuild, championId },
   },
 }) => {
@@ -13,10 +15,7 @@ const Match = async ({
   return (
     <div className="card bg-base-100 shadow-xl mb-3 w-full">
       <div className="card-body">
-        <div>
-          KDA {kda.k}/{kda.d}/{kda.a}
-        </div>
-        <div className="flex items-center ">
+        <div className="flex items-center">
           <div className="avatar">
             <div className="w-12 h-12 rounded-full mr-3">
               <Image
@@ -27,6 +26,9 @@ const Match = async ({
                 width={48}
               />
             </div>
+          </div>
+          <div>
+            {kda.k}/{kda.d}/{kda.a}
           </div>
           <div className="grid-cols-3 grid gap-1 w-40">
             {items.map((item, i) => (
@@ -42,6 +44,7 @@ const Match = async ({
               <ItemIcon item={trinket} />
             </div>
           </div>
+          <Participants participants={participants} />
         </div>
       </div>
     </div>
