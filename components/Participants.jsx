@@ -31,7 +31,7 @@ const Summoner = async ({ championId, summonerName, team }) => {
           />
         </div>
       </div>
-      {summonerName.substring(0, 5)}...
+      {summonerName.substring(0, 5).trim()}...
     </div>
   );
 };
