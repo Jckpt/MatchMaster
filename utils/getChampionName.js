@@ -1,4 +1,5 @@
-export const getChampionName = async (championId) => {
+import { cache } from "react";
+export const getChampionName = cache(async (championId) => {
   const query = `query ($filter:String!){
     championQuery: queryChampionsV1Contents(filter:$filter){
       flatData{
@@ -21,7 +22,11 @@ export const getChampionName = async (championId) => {
       }),
     }
   );
+  if (!response.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
   const result = await response.json();
   const championName = result.data.championQuery[0].flatData.slug;
   return championName;
-};
+});

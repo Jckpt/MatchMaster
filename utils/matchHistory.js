@@ -1,4 +1,6 @@
-export const getUserData = async (summonerName, server) => {
+import { cache } from "react";
+
+export const getUserData = cache(async (summonerName, server) => {
   summonerName = decodeURIComponent(summonerName);
   const res = await fetch(
     "https://app.mobalytics.gg/api/lol/graphql/v1/query",
@@ -51,4 +53,4 @@ export const getUserData = async (summonerName, server) => {
   }
 
   return res.json();
-};
+});

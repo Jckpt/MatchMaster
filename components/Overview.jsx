@@ -18,6 +18,7 @@ const Overview = async ({ username, server }) => {
   } = await getUserData(username, server);
 
   //const matchHistory = data.data.lol.player.matchesHistory.matches[0].subject;
+  console.log(matches[0].subject.build.perks);
   return (
     <div className="flex flex-col w-full h-full">
       <Profile username={username} server={server} />

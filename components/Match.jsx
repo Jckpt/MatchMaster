@@ -1,11 +1,11 @@
 import React from "react";
-import Image from "next/image";
-import ItemIcon from "./ItemIcon";
 import Participants from "./Participants";
-import { getItems } from "../utils/itemFunctions";
-import { getChampionName } from "../utils/getChampionName";
 import Summoners from "./Summoners";
 import { getMatchResult } from "../utils/getMatchResult";
+import Runes from "./Runes";
+import MatchChampion from "./MatchChampion";
+import ItemsGrid from "./ItemsGrid";
+import Stats from "./Stats";
 const Match = async ({
   match: {
     participants,
@@ -16,12 +16,13 @@ const Match = async ({
       finalBuild,
       championId,
       cs,
-      build: { spells },
+      build: {
+        spells,
+        perks: { style, subStyle, IDs },
+      },
     },
   },
 }) => {
-  const [items, trinket] = getItems(finalBuild);
-  const slug = await getChampionName(championId);
   const matchResult = getMatchResult(team, teams[0]);
   return (
     <div
@@ -34,48 +35,16 @@ const Match = async ({
       <div className="card-body pt-7 pb-7 md:p-2">
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
-            <div className="avatar">
-              <div
-                className={`w-12 h-12 rounded-full border-2 ${
-                  matchResult === "WON" ? "border-blue-500" : "border-red-500"
-                } mr-2`}
-              >
-                <Image
-                  alt=""
-                  samesite="Strict"
-                  className="scale-115"
-                  src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
-                  height={48}
-                  width={48}
-                />
-              </div>
-            </div>
+            <MatchChampion matchResult={matchResult} championId={championId} />
             <div className="flex flex-col">
               {spells.map((spell, i) => (
                 <Summoners spell={spell} key={i} />
               ))}
             </div>
+            <Runes IDs={IDs} subStyle={subStyle} />
           </div>
-          <div>
-            {kda.k}/{kda.d}/{kda.a}
-          </div>
-          <div>{cs} CS</div>
-          <div className="flex flex-row items-center gap-1">
-            <div className="grid-cols-3 grid gap-1 w-30">
-              {items.map((item, i) => (
-                <div className="avatar" key={i}>
-                  <div className="w-8 h-8 rounded">
-                    <ItemIcon item={item} />
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="avatar">
-              <div className="w-8 h-8 rounded mr-3">
-                <ItemIcon item={trinket} />
-              </div>
-            </div>
-          </div>
+          <Stats kda={kda} cs={cs} />
+          <ItemsGrid finalBuild={finalBuild} />
           <Participants participants={participants} />
         </div>
       </div>
