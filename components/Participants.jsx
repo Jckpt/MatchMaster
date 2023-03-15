@@ -19,19 +19,20 @@ const Participants = async ({ participants }) => {
 const Summoner = async ({ championId, summonerName, team }) => {
   const slug = await getChampionName(championId);
   return (
-    <div className="pr-1 pb-1 hidden md:block">
+    <div className="pr-1 hidden md:flex flex-row">
       <div className="avatar">
         <div className="w-6 h-6 rounded">
           <Image
             alt=""
             samesite="Strict"
+            className="scale-115"
             src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
             height={48}
             width={48}
           />
         </div>
       </div>
-      {summonerName.substring(0, 5).trim()}...
+      <div className="pl-1">{summonerName.substring(0, 5).trim()}...</div>
     </div>
   );
 };

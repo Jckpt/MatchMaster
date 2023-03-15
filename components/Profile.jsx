@@ -15,6 +15,7 @@ const Profile = async ({ username, server }) => {
         <h2 className="card-title">Profil</h2>
         <Image
           alt=""
+          samesite="Strict"
           src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/${icon}.png`}
           width={96}
           height={96}

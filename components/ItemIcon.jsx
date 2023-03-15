@@ -4,7 +4,7 @@ const ItemIcon = ({ item }) => {
   return (
     <>
       {item === null ? (
-        <div className="border-dashed border-2 border-gray-500 w-8 h-8"></div>
+        <div className="border-dashed border-2 border-neutral-content w-8 h-8"></div>
       ) : (
         <Image
           alt=""

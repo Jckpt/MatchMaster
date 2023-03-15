@@ -25,12 +25,13 @@ const Match = async ({
   const matchResult = getMatchResult(team, teams[0]);
   return (
     <div
-      className={`card bg-gradient-to-l bg-base-100 shadow-xl mb-3 w-full border-l-4 ${
-        matchResult === "WON" ? "border-blue-500" : "border-red-500"
+      className={`card shadow-xl bg-gradient-to-r mb-3 w-full ${
+        matchResult === "WON" ? "from-blue-900" : "from-red-900"
       }
+      to-base-300
       `}
     >
-      <div className="card-body pt-7 pb-7 md:p-1">
+      <div className="card-body pt-7 pb-7 md:p-2">
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
             <div className="avatar">
@@ -42,6 +43,7 @@ const Match = async ({
                 <Image
                   alt=""
                   samesite="Strict"
+                  className="scale-115"
                   src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
                   height={48}
                   width={48}
