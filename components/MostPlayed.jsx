@@ -43,16 +43,16 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
   const WrColor = getWrColor(WR);
   return (
     <div className="flex flex-row justify-between items-center">
-      <div className="flex flex-row items-start">
+      <div className="flex flex-row items-center">
         <div className="avatar">
-          <div className="w-12 h-12 rounded-full">
+          <div className="w-10 h-10 rounded-full">
             <Image
               alt=""
               samesite="Strict"
               className="scale-115"
               src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
-              height={48}
-              width={48}
+              height={40}
+              width={40}
             />
           </div>
         </div>

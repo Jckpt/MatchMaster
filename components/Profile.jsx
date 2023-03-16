@@ -4,11 +4,10 @@ import Image from "next/image";
 const Profile = async ({ username, server }) => {
   const {
     data: {
-      lol: {
-        player: { icon },
-      },
+      lol: { player },
     },
   } = await summonerData(username, server);
+  console.log(player);
   return (
     <div className="card w-full mb-4 bg-base-100 shadow-xl">
       <div className="card-body">
@@ -16,11 +15,11 @@ const Profile = async ({ username, server }) => {
         <Image
           alt=""
           samesite="Strict"
-          src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/${icon}.png`}
+          src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/${player.icon}.png`}
           width={96}
           height={96}
         />
-        <p>{username}</p>
+        <p>{decodeURIComponent(username)}</p>
       </div>
     </div>
   );
