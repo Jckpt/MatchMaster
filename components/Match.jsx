@@ -26,10 +26,10 @@ const Match = async ({
   const matchResult = getMatchResult(team, teams[0]);
   return (
     <div
-      className={`card shadow-xl bg-gradient-to-tl mb-3 w-full ${
+      className={`card shadow-xl bg-gradient-to-t mb-3 w-full ${
         matchResult === "WON"
-          ? "from-blue-900 to-blue-600"
-          : "from-red-900 to-red-600"
+          ? "from-blue-900 to-blue-700"
+          : "from-red-900 to-red-700"
       }
       
       `}
