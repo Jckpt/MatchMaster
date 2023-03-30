@@ -1,3 +1,4 @@
+import { BASE_URL } from "./baseURL";
 export const getUserData = async (summonerName, server) => {
   summonerName = decodeURIComponent(summonerName);
   const res = await fetch(
@@ -53,9 +54,7 @@ export const getUserData = async (summonerName, server) => {
   return res.json();
 };
 export const getMatchHistory = async (summonerName, server) => {
-  const res = await fetch(
-    `http://localhost:3000/api/summoner/${server}/${summonerName}`
-  );
+  const res = await fetch(`${BASE_URL}/api/summoner/${server}/${summonerName}`);
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");

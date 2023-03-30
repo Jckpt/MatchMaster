@@ -3,7 +3,6 @@ import ItemIcon from "./ItemIcon";
 import { getItems } from "../utils/itemFunctions";
 const ItemsGrid = ({ finalBuild }) => {
   const [items, trinket] = getItems(finalBuild.items);
-  console.log(trinket);
   return (
     <div className="flex flex-row items-center gap-1">
       <div className="grid-cols-3 grid gap-1 w-30">

@@ -11,9 +11,6 @@ const Overview = async ({ username, server }) => {
   const siema = await getMatchHistory(username, server);
   const matches = siema.matchesHistory;
 
-  console.log("%c Oh my heavens! ", "background: #222; color: #bada55");
-  console.log(matches);
-  //const matchHistory = data.data.lol.player.matchesHistory.matches[0].subject;
   return (
     <div className="flex flex-col w-full h-full">
       <Profile username={username} server={server} />
