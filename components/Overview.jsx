@@ -5,6 +5,7 @@ import MostPlayed from "./MostPlayed";
 import Rank from "./Rank";
 import Profile from "./Profile";
 import NoMatches from "./NoMatches";
+import LoadMore from "./LoadMore";
 
 const Overview = async ({ username, server }) => {
   const {
@@ -29,7 +30,12 @@ const Overview = async ({ username, server }) => {
         </div>
         <div className="lg:w-3/5">
           {matches !== null ? (
-            matches.map((match, i) => <Match key={i} match={match} />)
+            <div>
+              {matches.map((match, i) => (
+                <Match key={i} match={match} />
+              ))}
+              <LoadMore username={username} server={server} />
+            </div>
           ) : (
             <NoMatches />
           )}
