@@ -3,7 +3,7 @@ import Image from "next/image";
 const ItemIcon = ({ item }) => {
   return (
     <>
-      {item === null ? (
+      {item === 0 ? (
         <div className="border-dashed border-2 border-neutral-content w-8 h-8"></div>
       ) : (
         <Image

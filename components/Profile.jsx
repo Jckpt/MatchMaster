@@ -7,7 +7,6 @@ const Profile = async ({ username, server }) => {
       lol: { player },
     },
   } = await summonerData(username, server);
-  console.log(player);
   return (
     <div className="card w-full mb-4 bg-base-100 shadow-xl">
       <div className="card-body">

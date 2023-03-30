@@ -52,3 +52,13 @@ export const getUserData = async (summonerName, server) => {
 
   return res.json();
 };
+export const getMatchHistory = async (summonerName, server) => {
+  const res = await fetch(
+    `http://localhost:3000/api/summoner/${server}/${summonerName}`
+  );
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  return await res.json();
+};

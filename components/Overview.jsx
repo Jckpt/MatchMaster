@@ -1,5 +1,5 @@
 import React from "react";
-import { getUserData } from "../utils/matchHistory";
+import { getMatchHistory, getUserData } from "../utils/matchHistory";
 import Match from "./Match";
 import MostPlayed from "./MostPlayed";
 import Rank from "./Rank";
@@ -8,18 +8,12 @@ import NoMatches from "./NoMatches";
 import LoadMore from "./LoadMore";
 
 const Overview = async ({ username, server }) => {
-  const {
-    data: {
-      lol: {
-        player: {
-          matchesHistory: { matches },
-        },
-      },
-    },
-  } = await getUserData(username, server);
+  const siema = await getMatchHistory(username, server);
+  const matches = siema.matchesHistory;
 
+  console.log("%c Oh my heavens! ", "background: #222; color: #bada55");
+  console.log(matches);
   //const matchHistory = data.data.lol.player.matchesHistory.matches[0].subject;
-  console.log(matches[0].subject.build.perks);
   return (
     <div className="flex flex-col w-full h-full">
       <Profile username={username} server={server} />
