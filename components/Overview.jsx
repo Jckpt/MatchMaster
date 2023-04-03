@@ -8,8 +8,11 @@ import NoMatches from "./NoMatches";
 import LoadMore from "./LoadMore";
 
 const Overview = async ({ username, server }) => {
-  const siema = await getMatchHistory(username, server);
-  const matches = siema.matchesHistory;
+  const { matchesHistory: matches } = await getMatchHistory(
+    username,
+    server,
+    0
+  );
 
   return (
     <div className="flex flex-col w-full h-full">

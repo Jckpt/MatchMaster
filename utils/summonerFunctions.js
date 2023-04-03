@@ -50,6 +50,7 @@ export const getMatchOverwiew = async (region, matchId, puuid) => {
     matchId: rawData.info.gameId,
     startedAt: rawData.info.gameStartTimestamp,
     duration: rawData.info.gameDuration,
+
     queue: getQueueName(rawData.info.queueId),
     teams: rawData.info.teams.map((team) => {
       return {
