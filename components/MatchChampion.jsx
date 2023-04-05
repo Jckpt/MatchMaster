@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
-import { getChampionName } from "../utils/getChampionName";
+import { getChampionIcon, getVersion } from "../utils/getIcons";
 const MatchChampion = async ({ matchResult, championId }) => {
-  const slug = await getChampionName(championId);
+  const img = await getChampionIcon(championId);
+  const version = await getVersion();
   return (
     <div className="avatar">
       <div
@@ -14,7 +15,7 @@ const MatchChampion = async ({ matchResult, championId }) => {
           alt=""
           samesite="Strict"
           className="scale-115"
-          src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
+          src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${img}.png`}
           height={48}
           width={48}
         />

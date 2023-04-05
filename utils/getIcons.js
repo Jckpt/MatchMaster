@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { BASE_URL } from "./baseURL";
 export const getChampionName = cache(async (championId) => {
   const query = `query ($filter:String!){
     championQuery: queryChampionsV1Contents(filter:$filter){
@@ -30,3 +31,14 @@ export const getChampionName = cache(async (championId) => {
   const championName = result.data.championQuery[0].flatData.slug;
   return championName;
 });
+export const getChampionIcon = async (championId) => {
+  const response = await fetch(`${BASE_URL}/api/champion/${championId}`);
+  const data = await response.json();
+  console.log(data);
+  return data.champion.id;
+};
+export const getVersion = async () => {
+  const response = await fetch(`${BASE_URL}/api/version`);
+  const data = await response.json();
+  return data.version;
+};

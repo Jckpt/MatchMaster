@@ -1,6 +1,6 @@
 import React from "react";
 import { summonerData } from "../utils/gameData";
-import { getChampionName } from "../utils/getChampionName";
+import { getChampionIcon, getVersion } from "../utils/getIcons";
 import Image from "next/image";
 import { getKdaColor, getWrColor } from "../utils/getColor";
 const MostPlayed = async ({ username, server }) => {
@@ -36,7 +36,8 @@ const MostPlayed = async ({ username, server }) => {
 };
 
 const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
-  const slug = await getChampionName(championId);
+  const img = await getChampionIcon(championId);
+  const version = await getVersion();
   const KDA = ((kda.k + kda.a) / kda.d).toFixed(2);
   const KdaColor = getKdaColor(KDA);
   const WR = ((wins / (wins + looses)) * 100).toFixed(0);
@@ -50,14 +51,14 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
               alt=""
               samesite="Strict"
               className="scale-115"
-              src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
+              src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${img}.png`}
               height={40}
               width={40}
             />
           </div>
         </div>
         <div className="pl-2">
-          <div className="capitalize">{slug}</div>
+          <div className="capitalize">{img}</div>
           <div className="text-xs">{csm.toFixed(1)} CS/M</div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { getChampionName } from "../utils/getChampionName";
+import { getChampionIcon, getVersion } from "../utils/getIcons";
 import Image from "next/image";
 const Participants = async ({ participants }) => {
   return (
@@ -17,7 +17,8 @@ const Participants = async ({ participants }) => {
 };
 
 const Summoner = async ({ championId, summonerName, team }) => {
-  const slug = await getChampionName(championId);
+  const img = await getChampionIcon(championId);
+  const version = await getVersion();
   return (
     <div className="pr-1 hidden md:flex flex-row">
       <div className="avatar">
@@ -26,7 +27,7 @@ const Summoner = async ({ championId, summonerName, team }) => {
             alt=""
             samesite="Strict"
             className="scale-115"
-            src={`https://cdn.mobalytics.gg/assets/lol/images/dd/champions/icons/${slug}.png`}
+            src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${img}.png`}
             height={48}
             width={48}
           />

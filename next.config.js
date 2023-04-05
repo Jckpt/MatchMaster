@@ -12,6 +12,12 @@ const nextConfig = {
         port: "",
         pathname: "/assets/lol/images/**",
       },
+      {
+        protocol: "http",
+        hostname: "ddragon.leagueoflegends.com",
+        port: "",
+        pathname: "/cdn/**",
+      },
     ],
   },
 };
