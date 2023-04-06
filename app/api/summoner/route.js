@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
-import { getServer, getRegion } from "../../../../utils/summonerLocation";
+import { getServer, getRegion } from "../../../utils/summonerLocation";
 import {
   getPlayerMatches,
   getSummonerPUUID,
   getMatchDetails,
   getMatchOverwiew,
-} from "../../../../utils/summonerFunctions";
+} from "../../../utils/summonerFunctions";
 export async function GET(request, { params }) {
   const rawServer = params.summoner[0];
   const summonerName = params.summoner[1];
