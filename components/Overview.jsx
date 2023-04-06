@@ -1,11 +1,9 @@
 import React from "react";
 import { getMatchHistory, getUserData } from "../utils/matchHistory";
-import Match from "./Match";
 import MostPlayed from "./MostPlayed";
 import Rank from "./Rank";
 import Profile from "./Profile";
-import NoMatches from "./NoMatches";
-import LoadMore from "./LoadMore";
+import AllMatches from "./AllMatches";
 
 const Overview = async ({ username, server }) => {
   const { matchesHistory: matches } = await getMatchHistory(
@@ -22,17 +20,8 @@ const Overview = async ({ username, server }) => {
           <Rank username={username} server={server} />
           <MostPlayed username={username} server={server} />
         </div>
-        <div className="lg:w-3/5">
-          {matches !== null ? (
-            <div>
-              {matches.map((match, i) => (
-                <Match key={i} match={match} />
-              ))}
-              <LoadMore username={username} server={server} />
-            </div>
-          ) : (
-            <NoMatches />
-          )}
+        <div className="lg:w-3/5 flex flex-col items-center">
+          <AllMatches username={username} server={server} />
         </div>
       </div>
     </div>

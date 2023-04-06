@@ -21,7 +21,6 @@ const Participants = ({ participants }) => {
 
 const Summoner = ({ championId, summonerName, team }) => {
   const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
-  console.log(data);
   const [championName, version] = getChampionIcon(data?.champion);
   return (
     <div className="pr-1 hidden md:flex flex-row">

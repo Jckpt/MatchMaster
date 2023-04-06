@@ -16,7 +16,9 @@ function LoadMore({ server, username }) {
   return (
     <>
       {pages}
-      <button onClick={() => setCount(count + 1)}>Load More</button>
+      <button className="btn btn-wide" onClick={() => setCount(count + 1)}>
+        Load More
+      </button>
     </>
   );
 }
@@ -34,7 +36,6 @@ function Page({ index, server, username }) {
   if (!data) {
     return <div>Loading...</div>;
   }
-  console.log(data.matchesHistory);
   return data?.matchesHistory?.map((match, i) => (
     <Match key={i} match={match} />
   ));

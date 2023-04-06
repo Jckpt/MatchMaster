@@ -13,17 +13,16 @@ const AllMatches = ({ username, server }) => {
     `/api/summoner/${server}/${username}?start=0`,
     fetcher
   );
-  console.log(data);
   const matches = data?.matchesHistory;
   return (
     <>
       {matches !== null ? (
-        <div>
+        <>
           {matches?.map((match, i) => (
             <Match key={i} match={match} />
           ))}
           <LoadMore username={username} server={server} />
-        </div>
+        </>
       ) : (
         <NoMatches />
       )}

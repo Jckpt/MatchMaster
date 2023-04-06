@@ -7,7 +7,6 @@ const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 
 const MatchChampion = ({ matchResult, championId }) => {
   const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
-  console.log(data);
   const [championName, version] = getChampionIcon(data?.champion);
   return (
     <div className="avatar">
