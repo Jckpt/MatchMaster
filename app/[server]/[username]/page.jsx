@@ -1,6 +1,5 @@
 import React from "react";
 import Overview from "../../../components/Overview";
-import { Kdam_Thmor_Pro } from "@next/font/google";
 import Hero from "../../../components/Hero";
 const page = async ({ params: { username, server } }) => {
   return (

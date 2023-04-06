@@ -26,8 +26,6 @@ function Page({ index, server, username }) {
     `/api/summoner/${server}/${username}?start=${index * 10}`,
     fetcher
   );
-  console.log("matches", data); // log the matches data
-  console.log("error", error); // log any errors
 
   if (error) {
     return <div>There was an error fetching data.</div>;

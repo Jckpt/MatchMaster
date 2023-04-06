@@ -59,7 +59,5 @@ export async function championKeyMap(version) {
   return championKeyMap;
 }
 export function getChampion(championKeys, championId) {
-  console.log(championKeys.get(championId));
-  console.log(championId);
   return championKeys.get(championId);
 }

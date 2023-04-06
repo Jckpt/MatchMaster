@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { getChampionIcon, getVersion } from "../utils/getIcons";
 const MatchChampion = async ({ matchResult, championId }) => {
-  const img = await getChampionIcon(championId);
+  const championName = await getChampionIcon(championId);
   const version = await getVersion();
   return (
     <div className="avatar">
@@ -15,7 +15,7 @@ const MatchChampion = async ({ matchResult, championId }) => {
           alt=""
           samesite="Strict"
           className="scale-115"
-          src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${img}.png`}
+          src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
           height={48}
           width={48}
         />

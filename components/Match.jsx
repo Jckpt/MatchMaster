@@ -34,7 +34,7 @@ const Match = async ({
       
       `}
     >
-      <div className="card-body pt-7 pb-7 md:p-2">
+      <div className="card-body pt-7 pb-7 pl-0 pr-0 md:p-2">
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
             <MatchChampion matchResult={matchResult} championId={championId} />

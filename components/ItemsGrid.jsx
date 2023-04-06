@@ -1,8 +1,8 @@
 import React from "react";
 import ItemIcon from "./ItemIcon";
-import { getItems } from "../utils/itemFunctions";
+import { parseItems } from "../utils/itemFunctions";
 const ItemsGrid = ({ finalBuild }) => {
-  const [items, trinket] = getItems(finalBuild.items);
+  const [items, trinket] = parseItems(finalBuild.items);
   return (
     <div className="flex flex-row items-center gap-1">
       <div className="grid-cols-3 grid gap-1 w-30">
