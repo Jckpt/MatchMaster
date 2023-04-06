@@ -8,7 +8,7 @@ import {
 } from "../../../../utils/summonerFunctions";
 export async function GET(request, { params }) {
   const { searchParams } = new URL(request.url);
-  const start = searchParams.get("start");
+  const start = searchParams.get("start") || 0;
   const rawServer = params.summoner[0];
   const summonerName = params.summoner[1];
   const server = getServer(rawServer);
