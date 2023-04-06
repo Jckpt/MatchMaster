@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Participants from "./Participants";
 import Summoners from "./Summoners";
@@ -6,7 +7,7 @@ import Runes from "./Runes";
 import MatchChampion from "./MatchChampion";
 import ItemsGrid from "./ItemsGrid";
 import Stats from "./Stats";
-const Match = async ({
+const Match = ({
   match: {
     participants,
     teams,

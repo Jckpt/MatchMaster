@@ -1,6 +1,10 @@
 import React from "react";
 import { summonerData } from "../utils/gameData";
-import { getChampionIcon, getVersion } from "../utils/getIcons";
+import {
+  getChampionIcon,
+  getChampionIconServer,
+  getVersion,
+} from "../utils/getIcons";
 import Image from "next/image";
 import { getKdaColor, getWrColor } from "../utils/getColor";
 const MostPlayed = async ({ username, server }) => {
@@ -36,7 +40,7 @@ const MostPlayed = async ({ username, server }) => {
 };
 
 const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
-  const [championName, version] = await getChampionIcon(championId);
+  const [championName, version] = await getChampionIconServer(championId);
   const KDA = ((kda.k + kda.a) / kda.d).toFixed(2);
   const KdaColor = getKdaColor(KDA);
   const WR = ((wins / (wins + looses)) * 100).toFixed(0);

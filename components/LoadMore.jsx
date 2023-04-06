@@ -36,7 +36,7 @@ function Page({ index, server, username }) {
   }
   console.log(data.matchesHistory);
   return data?.matchesHistory?.map((match, i) => (
-    <div key={i}>{match.matchId}</div>
+    <Match key={i} match={match} />
   ));
 }
 export default LoadMore;
