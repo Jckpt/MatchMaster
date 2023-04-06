@@ -36,8 +36,7 @@ const MostPlayed = async ({ username, server }) => {
 };
 
 const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
-  const championName = await getChampionIcon(championId);
-  const version = await getVersion();
+  const [championName, version] = await getChampionIcon(championId);
   const KDA = ((kda.k + kda.a) / kda.d).toFixed(2);
   const KdaColor = getKdaColor(KDA);
   const WR = ((wins / (wins + looses)) * 100).toFixed(0);

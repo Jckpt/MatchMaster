@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
 import { getChampionIcon, getVersion } from "../utils/getIcons";
+
+const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
+
 const MatchChampion = async ({ matchResult, championId }) => {
-  const championName = await getChampionIcon(championId);
-  const version = await getVersion();
+  const [championName, version] = await getChampionIcon(championId);
   return (
     <div className="avatar">
       <div

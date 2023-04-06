@@ -1,5 +1,5 @@
 import React from "react";
-import { getChampionIcon, getVersion } from "../utils/getIcons";
+import { getChampionIcon } from "../utils/getIcons";
 import Image from "next/image";
 const Participants = async ({ participants }) => {
   return (
@@ -17,8 +17,7 @@ const Participants = async ({ participants }) => {
 };
 
 const Summoner = async ({ championId, summonerName, team }) => {
-  const championName = await getChampionIcon(championId);
-  const version = await getVersion();
+  const [championName, version] = await getChampionIcon(championId);
   return (
     <div className="pr-1 hidden md:flex flex-row">
       <div className="avatar">
