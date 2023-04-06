@@ -70,3 +70,18 @@ export const getMatchOverwiew = async (region, matchId, puuid) => {
   };
   return data;
 };
+export async function getChallengers(server) {
+  const response = await fetch(
+    `https://${server}.api.riotgames.com/lol/league/v4/challengerleagues/by-queue/RANKED_SOLO_5x5`,
+    {
+      headers: {
+        "X-Riot-Token": process.env.RIOT_KEY,
+      },
+    }
+  );
+  const data = await response.json();
+  const challengers = data.entries.slice(0, 10).map((challenger) => {
+    return challenger.summonerName;
+  });
+  return challengers;
+}
