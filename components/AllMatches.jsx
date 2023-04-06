@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { Suspense } from "react";
 import NoMatches from "./NoMatches";
 import LoadMore from "./LoadMore";
 import Match from "./Match";
@@ -18,10 +18,12 @@ const AllMatches = ({ username, server }) => {
     <>
       {matches !== null ? (
         <>
-          {matches?.map((match, i) => (
-            <Match key={i} match={match} />
-          ))}
-          <LoadMore username={username} server={server} />
+          <Suspense fallback={<div>Loading...</div>}>
+            {matches?.map((match, i) => (
+              <Match key={i} match={match} />
+            ))}
+            <LoadMore username={username} server={server} />
+          </Suspense>
         </>
       ) : (
         <NoMatches />

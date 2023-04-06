@@ -1,5 +1,5 @@
 export const getServer = (rawServer) => {
-  switch (rawServer) {
+  switch (rawServer.toLowerCase()) {
     case "euw":
       return "euw1";
     case "eune":
