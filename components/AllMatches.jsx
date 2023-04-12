@@ -4,6 +4,7 @@ import NoMatches from "./NoMatches";
 import LoadMore from "./LoadMore";
 import Match from "./Match";
 import useSWR from "swr";
+import { getMatchHistory } from "../utils/matchHistory";
 import { BASE_URL } from "../utils/baseURL";
 const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 

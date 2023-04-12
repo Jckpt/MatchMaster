@@ -13,7 +13,6 @@ const Match = ({
     teams,
     subject: {
       team,
-      championImg,
       kda,
       finalBuild,
       championId,
@@ -39,11 +38,7 @@ const Match = ({
       <div className="card-body pt-7 pb-7 pl-0 pr-0 md:p-2">
         <div className="flex items-center justify-around">
           <div className="flex flex-row items-center">
-            <MatchChampion
-              matchResult={matchResult}
-              championId={championId}
-              championImg={championImg}
-            />
+            <MatchChampion matchResult={matchResult} championId={championId} />
             <div className="flex flex-col">
               {spells.map((spell, i) => (
                 <Summoners spell={spell} key={i} />

@@ -45,9 +45,6 @@ export const getMatchOverwiew = async (region, matchId, puuid) => {
   );
   const rawData = await res.json();
   // get subject role,region,summonerName,championId,championLevel,team
-  const participantPromises = rawData.info.participants.map((participant) => {
-    return parsedParticipant(participant);
-  });
 
   const data = {
     matchId: rawData.info.gameId,
@@ -62,12 +59,14 @@ export const getMatchOverwiew = async (region, matchId, puuid) => {
       };
     }),
     // return subject that uses parsedParticipant function
-    subject: await parsedParticipant(
+    subject: parsedParticipant(
       rawData.info.participants.find(
         (participant) => participant.puuid === puuid
       )
     ),
-    participants: await Promise.all(participantPromises),
+    participants: rawData.info.participants.map((participant) => {
+      return parsedParticipant(participant);
+    }),
   };
   return data;
 };

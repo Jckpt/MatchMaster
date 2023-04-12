@@ -1,7 +1,13 @@
 import React from "react";
 import Image from "next/image";
+import { getChampionIcon, getVersion } from "../utils/getIcons";
+import useSWR from "swr";
+import { BASE_URL } from "../utils/baseURL";
+const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 
-const MatchChampion = ({ matchResult, championImg }) => {
+const MatchChampion = ({ matchResult, championId }) => {
+  const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
+  const [championName, version] = getChampionIcon(data?.champion);
   return (
     <div className="avatar">
       <div
@@ -13,7 +19,7 @@ const MatchChampion = ({ matchResult, championImg }) => {
           alt=""
           samesite="Strict"
           className="scale-115"
-          src={championImg}
+          src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
           height={48}
           width={48}
         />
