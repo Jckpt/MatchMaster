@@ -8,6 +8,7 @@ import MatchChampion from "./MatchChampion";
 import ItemsGrid from "./ItemsGrid";
 import Stats from "./Stats";
 const Match = ({
+  server,
   match: {
     participants,
     teams,
@@ -48,7 +49,7 @@ const Match = ({
           </div>
           <Stats kda={kda} cs={cs} />
           <ItemsGrid finalBuild={finalBuild} />
-          <Participants participants={participants} />
+          <Participants participants={participants} server={server} />
         </div>
       </div>
     </div>

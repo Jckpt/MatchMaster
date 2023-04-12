@@ -42,8 +42,8 @@ export const parsedParticipant = (participant) => {
         participant.item3,
         participant.item4,
         participant.item5,
-        participant.item6,
       ],
+      trinket: participant.item6,
     },
     build: {
       spells: [participant.summoner1Id, participant.summoner2Id],

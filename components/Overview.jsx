@@ -14,9 +14,9 @@ const Overview = async ({ username, server }) => {
 
   return (
     <div className="flex flex-col w-full h-full">
-      <Profile username={username} server={server} />
       <div className="w-full flex flex-col lg:flex-row h-full">
         <div className="flex flex-col justify-start w-full lg:w-2/5 lg:h-full lg:mr-4">
+          <Profile username={username} server={server} />
           <Rank username={username} server={server} />
           <MostPlayed username={username} server={server} />
         </div>

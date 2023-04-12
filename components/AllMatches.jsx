@@ -20,7 +20,7 @@ const AllMatches = ({ username, server }) => {
         <>
           <Suspense fallback={<div>Loading...</div>}>
             {matches?.map((match, i) => (
-              <Match key={i} match={match} />
+              <Match key={i} match={match} server={server} />
             ))}
             <LoadMore username={username} server={server} />
           </Suspense>
