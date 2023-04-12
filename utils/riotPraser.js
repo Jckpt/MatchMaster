@@ -1,3 +1,9 @@
+import {
+  getLatestVersion,
+  championKeyMap,
+  getChampion,
+} from "../utils/gameData";
+import { BASE_URL } from "./baseURL";
 // lookup Map that uses queueId to return the name of the queue
 const queueLookup = new Map([
   [400, "Draft Pick"],
@@ -21,11 +27,18 @@ const queueLookup = new Map([
 export const getQueueName = (queueId) => {
   return queueLookup.get(queueId);
 };
-export const parsedParticipant = (participant) => {
+const fetchChampion = async (championId) => {
+  const data = await fetch(`${BASE_URL}/api/champion/${championId}`);
+  const response = await data.json();
+  return response.champion;
+};
+export const parsedParticipant = async (participant) => {
+  const champion = await fetchChampion(participant.championId);
   return {
     role: participant.lane,
     summonerName: participant.summonerName,
     championId: participant.championId,
+    championImg: `http://ddragon.leagueoflegends.com/cdn/${champion.version}/img/champion/${champion.image.full}`,
     championLevel: participant.champLevel,
     team: teamColor(participant.teamId),
     cs: participant.totalMinionsKilled + participant.neutralMinionsKilled,
@@ -42,8 +55,8 @@ export const parsedParticipant = (participant) => {
         participant.item3,
         participant.item4,
         participant.item5,
-        participant.item6,
       ],
+      trinket: participant.item6,
     },
     build: {
       spells: [participant.summoner1Id, participant.summoner2Id],

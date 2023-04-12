@@ -5,7 +5,7 @@ import useSWR from "swr";
 import { BASE_URL } from "../utils/baseURL";
 const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 
-const MatchChampion = ({ matchResult, championId }) => {
+const MatchChampion = ({ matchResult, championId, championImg }) => {
   const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
   const [championName, version] = getChampionIcon(data?.champion);
   return (
@@ -19,7 +19,7 @@ const MatchChampion = ({ matchResult, championId }) => {
           alt=""
           samesite="Strict"
           className="scale-115"
-          src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
+          src={championImg}
           height={48}
           width={48}
         />
