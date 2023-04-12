@@ -1,13 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { getChampionIcon, getVersion } from "../utils/getIcons";
-import useSWR from "swr";
-import { BASE_URL } from "../utils/baseURL";
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 
-const MatchChampion = ({ matchResult, championId, championImg }) => {
-  const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
-  const [championName, version] = getChampionIcon(data?.champion);
+const MatchChampion = ({ matchResult, championImg }) => {
   return (
     <div className="avatar">
       <div

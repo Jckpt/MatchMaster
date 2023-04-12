@@ -1,9 +1,5 @@
 import React from "react";
-import { getChampionIcon } from "../utils/getIcons";
 import Image from "next/image";
-import { BASE_URL } from "../utils/baseURL";
-import useSWR from "swr";
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 const Participants = ({ participants }) => {
   return (
     <div className="grid grid-flow-col grid-rows-5">
@@ -22,9 +18,7 @@ const Participants = ({ participants }) => {
   );
 };
 
-const Summoner = ({ championId, summonerName, team, championImg }) => {
-  const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
-  const [championName, version] = getChampionIcon(data?.champion);
+const Summoner = ({ summonerName, team, championImg }) => {
   return (
     <div className="pr-1 hidden md:flex flex-row">
       <div className="avatar">
