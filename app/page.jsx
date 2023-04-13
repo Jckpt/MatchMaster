@@ -14,7 +14,7 @@ const page = () => {
           </Link>
         </div>
       </div>
-      <Hero className="flex flex-col">
+      <Hero className="flex flex-col bg-black">
         <MainPage />
       </Hero>
     </>

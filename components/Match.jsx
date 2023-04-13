@@ -32,10 +32,8 @@ const Match = ({
   const matchResult = getMatchResult(team, teams[0]);
   return (
     <div
-      className={`card shadow-xl bg-gradient-to-t mb-3 w-full ${
-        matchResult === "WON"
-          ? "from-blue-900 to-blue-700"
-          : "from-red-900 to-red-700"
+      className={`card shadow-xl backdrop-blur-sm bg-opacity-50 mb-3 w-full ${
+        matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
       }
       
       `}
