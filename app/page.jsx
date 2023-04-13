@@ -2,17 +2,19 @@ import React from "react";
 import Hero from "../components/Hero";
 import MainPage from "../components/MainPage";
 import Link from "next/link";
+import logo from "../public/logo-isolated.svg";
+import Image from "next/image";
 const page = () => {
   return (
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <Link href="/" className="btn btn-ghost normal-case text-xl">
-            League Match History
+            <Image src={logo} height={32} />
           </Link>
         </div>
       </div>
-      <Hero>
+      <Hero className="flex flex-col">
         <MainPage />
       </Hero>
     </>
