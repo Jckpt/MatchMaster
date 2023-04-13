@@ -29,7 +29,7 @@ const MainPage = () => {
       <div className="flex justify-center w-full h-full gap-4 flex-col items-center xl:flex-row">
         <div className="flex w-full md:w-6/12 gap-4">
           <select
-            className="select select-bordered"
+            className="select select-bordered backdrop-blur-sm bg-opacity-70"
             value={server}
             onChange={handleSelect}
           >
@@ -50,7 +50,7 @@ const MainPage = () => {
             <input
               type="text"
               placeholder="Summoner's name"
-              className="input input-bordered w-auto"
+              className="input input-bordered w-auto backdrop-blur-sm bg-opacity-50"
               value={username}
               onChange={handleTextChange}
               onKeyDown={handleKeyDown}
@@ -58,7 +58,7 @@ const MainPage = () => {
           </div>
         </div>
         <Link
-          className="btn w-full md:w-6/12 xl:w-1/12"
+          className="btn w-full md:w-6/12 xl:w-1/12 backdrop-blur-sm bg-opacity-50"
           href={`/${server}/${username}`}
         >
           search

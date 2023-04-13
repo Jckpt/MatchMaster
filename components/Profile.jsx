@@ -8,7 +8,7 @@ const Profile = async ({ username, server }) => {
     },
   } = await summonerData(username, server);
   return (
-    <div className="card w-full mb-4 bg-base-100 shadow-xl">
+    <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body">
         <h2 className="card-title">Profil</h2>
         <Image
