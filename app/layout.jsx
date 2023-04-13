@@ -10,16 +10,7 @@ const roboto = Roboto({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
-      <body>
-        <div className="navbar bg-base-100">
-          <div className="flex-1">
-            <Link href="/" className="btn btn-ghost normal-case text-xl">
-              League Match History
-            </Link>
-          </div>
-        </div>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

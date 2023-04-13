@@ -1,6 +1,5 @@
 import React from "react";
 import ItemIcon from "./ItemIcon";
-import { parseItems } from "../utils/itemFunctions";
 const ItemsGrid = ({ finalBuild: { items, trinket } }) => {
   return (
     <div className="flex flex-row items-center gap-1">

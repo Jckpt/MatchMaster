@@ -27,7 +27,10 @@ const Summoner = ({ championId, summonerName, team, server }) => {
   const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
   const [championName, version] = getChampionIcon(data?.champion);
   return (
-    <div className="pr-1 hidden md:flex flex-row">
+    <Link
+      className="pr-1 hidden md:flex flex-row hover:text-white"
+      href={`/${server}/${summonerName}`}
+    >
       <div className="avatar">
         <div className="w-6 h-6 rounded">
           <Image
@@ -41,13 +44,11 @@ const Summoner = ({ championId, summonerName, team, server }) => {
         </div>
       </div>
       <div className="pl-1">
-        <Link href={`/${server}/${summonerName}`}>
-          {summonerName.length > 5
-            ? `${summonerName.substring(0, 5).trim()}...`
-            : summonerName}
-        </Link>
+        {summonerName.length > 5
+          ? `${summonerName.substring(0, 5).trim()}...`
+          : summonerName}
       </div>
-    </div>
+    </Link>
   );
 };
 
