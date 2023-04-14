@@ -34,9 +34,7 @@ const Match = ({
     <div
       className={`card shadow-xl backdrop-blur-sm bg-opacity-50 mb-3 w-full ${
         matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
-      }
-      
-      `}
+      }`}
     >
       <div className="card-body pt-2 pb-4 pl-0 pr-0 md:p-2 text-stone-300">
         <MatchHeader
@@ -56,7 +54,7 @@ const Match = ({
             <Runes IDs={IDs} subStyle={subStyle} />
           </div>
           <Stats kda={kda} cs={cs} />
-          <ItemsGrid finalBuild={finalBuild} />
+          <ItemsGrid finalBuild={finalBuild} matchResult={matchResult} />
           <Participants participants={participants} server={server} />
         </div>
       </div>

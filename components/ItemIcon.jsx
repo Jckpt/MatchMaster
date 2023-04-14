@@ -1,10 +1,14 @@
 import React from "react";
 import Image from "next/image";
-const ItemIcon = ({ item }) => {
+const ItemIcon = ({ item, matchResult }) => {
   return (
     <>
       {item === 0 ? (
-        <div className="border-dashed border-2 border-neutral-content w-8 h-8"></div>
+        <div
+          className={`w-8 h-8 bg-opacity-40 ${
+            matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
+          }`}
+        ></div>
       ) : (
         <Image
           alt=""
