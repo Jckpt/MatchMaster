@@ -1,6 +1,12 @@
 import React from "react";
 import { prasedDuration, timeAgo } from "../utils/matchFunctions";
-const MatchHeader = ({ duration, queue, startedAt, matchResult }) => {
+const MatchHeader = ({
+  duration,
+  queue,
+  startedAt,
+  matchResult,
+  showDetailsHandler,
+}) => {
   const timeAgoDate = timeAgo(startedAt);
   const matchDuration = prasedDuration(duration);
   return (
@@ -11,7 +17,7 @@ const MatchHeader = ({ duration, queue, startedAt, matchResult }) => {
           <span className="pr-2">{timeAgoDate}</span>
           <span className="pr-2">{matchDuration}</span>
         </div>
-        <div>Match details</div>
+        <button onClick={showDetailsHandler}>Match details</button>
       </div>
       <div
         className={`w-full h-1 rounded-md ${

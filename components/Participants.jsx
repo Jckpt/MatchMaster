@@ -38,8 +38,8 @@ const Summoner = ({ championId, summonerName, team, server }) => {
             samesite="Strict"
             className="scale-115"
             src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
-            height={48}
-            width={48}
+            height={24}
+            width={24}
           />
         </div>
       </div>
