@@ -1,5 +1,5 @@
 import React from "react";
-import { prasedDuration, timeAgo } from "../utils/matchFunctions";
+import { prasedDuration, timeAgo } from "../utils/utilsFrontend";
 const MatchHeader = ({
   duration,
   queue,

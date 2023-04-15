@@ -4,8 +4,7 @@ import NoMatches from "./NoMatches";
 import LoadMore from "./LoadMore";
 import Match from "./Match";
 import useSWR from "swr";
-import { BASE_URL } from "../utils/baseURL";
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
+import { fetcher } from "../utils/utilsFrontend";
 
 const AllMatches = ({ username, server }) => {
   const { data, error } = useSWR(

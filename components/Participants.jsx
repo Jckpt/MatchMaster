@@ -1,7 +1,5 @@
 import React from "react";
-import { getChampionIcon } from "../utils/getIcons";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { getChampionIcon } from "../utils/utilsFrontend";
 import Link from "next/link";
 const Participants = ({ participants, server, championNames }) => {
   return (

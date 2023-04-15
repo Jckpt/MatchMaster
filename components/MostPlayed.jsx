@@ -1,12 +1,11 @@
 import React from "react";
 import { summonerData } from "../utils/gameData";
-import {
-  getChampionIcon,
-  getChampionIconServer,
-  getVersion,
-} from "../utils/getIcons";
 import Image from "next/image";
-import { getKdaColor, getWrColor } from "../utils/getColor";
+import {
+  getKdaColor,
+  getWrColor,
+  getChampionIconServer,
+} from "../utils/utilsFrontend";
 const MostPlayed = async ({ username, server }) => {
   const {
     data: {

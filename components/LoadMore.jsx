@@ -3,9 +3,7 @@ import useSWR from "swr";
 import React from "react";
 import { useState } from "react";
 import Match from "./Match";
-import { BASE_URL } from "../utils/baseURL";
-
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
+import { fetcher } from "../utils/utilsFrontend";
 
 function LoadMore({ server, username }) {
   const [count, setCount] = useState(1);

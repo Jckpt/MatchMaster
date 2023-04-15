@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Participants from "./Participants";
-import { getMatchResult } from "../utils/getMatchResult";
 import ItemsGrid from "./ItemsGrid";
 import ChampionAttributes from "./ChampionAttributes";
 import Stats from "./Stats";
@@ -9,9 +8,8 @@ import MatchHeader from "./MatchHeader";
 import MatchDetails from "./MatchDetails";
 import { useState } from "react";
 import useSWR from "swr";
-import { BASE_URL } from "../utils/baseURL";
-import { getSearchParams } from "../utils/getIcons";
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
+import { getSearchParams, getMatchResult } from "../utils/utilsFrontend";
+import { fetcher } from "../utils/utilsFrontend";
 
 const Match = ({
   server,
