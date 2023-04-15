@@ -15,13 +15,13 @@ const MatchDetails = ({ showDetails, matchResult, participants }) => {
     >
       <div>siema</div>
       <div>
-        {redTeam.map((participant) => (
-          <div>{participant.summonerName}</div>
+        {redTeam.map((participant, i) => (
+          <div key={i}>{participant.summonerName}</div>
         ))}
       </div>
       <div>
-        {blueTeam.map((participant) => (
-          <div>{participant.summonerName}</div>
+        {blueTeam.map((participant, i) => (
+          <div key={i}>{participant.summonerName}</div>
         ))}
       </div>
     </div>
