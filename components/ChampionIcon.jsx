@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import { getChampionIcon } from "../utils/getIcons";
 
 const ChampionIcon = ({ matchResult, championId, size, championNames }) => {
@@ -11,13 +10,11 @@ const ChampionIcon = ({ matchResult, championId, size, championNames }) => {
           matchResult === "WON" ? "border-blue-500" : "border-red-500"
         } mr-2`}
       >
-        <Image
+        <img
           alt=""
           samesite="Strict"
           className={`scale-115 w-${size / 4} h-${size / 4}`}
           src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
-          height={size}
-          width={size}
         />
       </div>
     </div>
