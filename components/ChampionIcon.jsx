@@ -14,6 +14,8 @@ const ChampionIcon = ({ matchResult, championId, size, championNames }) => {
           alt=""
           samesite="Strict"
           className={`scale-115 w-${size / 4} h-${size / 4}`}
+          width={size}
+          height={size}
           src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
         />
       </div>

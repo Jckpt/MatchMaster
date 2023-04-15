@@ -31,7 +31,7 @@ const Summoner = ({ summonerName, team, server, championNames, i }) => {
     >
       <div className="avatar">
         <div className="w-6 h-6 rounded">
-          <Image
+          <img
             alt=""
             samesite="Strict"
             className="scale-115"

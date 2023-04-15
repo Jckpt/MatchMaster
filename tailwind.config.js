@@ -10,6 +10,8 @@ module.exports = {
     "text-blue-400",
     "text-blue-600",
     "text-orange-500",
+    "w-12",
+    "h-12",
   ],
   theme: {
     extend: {
