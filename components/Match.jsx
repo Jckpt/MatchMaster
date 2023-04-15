@@ -10,6 +10,7 @@ import MatchDetails from "./MatchDetails";
 import { useState } from "react";
 import useSWR from "swr";
 import { BASE_URL } from "../utils/baseURL";
+import { getSearchParams } from "../utils/getIcons";
 const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
 
 const Match = ({
@@ -34,25 +35,16 @@ const Match = ({
   },
 }) => {
   const matchResult = getMatchResult(team, teams[0]);
-  const [showDetails, setShowDetails] = useState(true);
+  const [showDetails, setShowDetails] = useState(false);
   const showDetailsHandler = () => {
     setShowDetails((showDetails) => !showDetails);
   };
-  const participantsChampionIds = participants.map(
-    (participant) => participant.championId
-  );
-  const searchParamsParticipants = new URLSearchParams({
-    championIds: participantsChampionIds.join(","),
-  });
-  const searchStringParticipants = searchParamsParticipants.toString();
+  const searchParams = getSearchParams(participants);
   const {
     data: championNames,
     error,
     isLoading,
-  } = useSWR(
-    `/api/champion/${championId}?${searchStringParticipants}`,
-    fetcher
-  );
+  } = useSWR(`/api/champion/${championId}?${searchParams}`, fetcher);
   return (
     <>
       <div

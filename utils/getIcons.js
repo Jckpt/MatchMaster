@@ -12,3 +12,10 @@ export const getChampionIconServer = async (championId) => {
   const data = await response.json();
   return [data.champion.id, data.champion.version];
 };
+export const getSearchParams = (participants) => {
+  const championIds = participants.map((participant) => participant.championId);
+  const searchParams = new URLSearchParams({
+    championIds: championIds.join(","),
+  });
+  return searchParams.toString();
+};
