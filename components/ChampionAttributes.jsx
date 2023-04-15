@@ -9,6 +9,7 @@ const ChampionAttributes = ({
   IDs,
   subStyle,
   size,
+  championNames,
 }) => {
   const championIconSize = size * 2;
   return (
@@ -17,6 +18,7 @@ const ChampionAttributes = ({
         matchResult={matchResult}
         championId={championId}
         size={championIconSize}
+        championNames={championNames}
       />
       <div className="flex flex-col">
         {spells.map((spell, i) => (

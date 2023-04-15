@@ -1,31 +1,29 @@
 import React from "react";
 import { getChampionIcon } from "../utils/getIcons";
 import Image from "next/image";
-import { BASE_URL } from "../utils/baseURL";
-import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
-const Participants = ({ participants, server }) => {
+const Participants = ({ participants, server, championNames }) => {
   return (
     <div className="grid grid-flow-col grid-rows-5">
-      {participants?.map(({ championId, summonerName, team }, i) => (
+      {participants?.map(({ summonerName, team }, i) => (
         <Summoner
-          championId={championId}
           summonerName={summonerName}
           team={team}
           key={i}
           server={server}
+          championNames={championNames}
+          i={i}
         />
       ))}
     </div>
   );
 };
 
-const Summoner = ({ championId, summonerName, team, server }) => {
-  const router = useRouter();
-  const { data, error } = useSWR(`/api/champion/${championId}`, fetcher);
-  const [championName, version] = getChampionIcon(data?.champion);
+const Summoner = ({ summonerName, team, server, championNames, i }) => {
+  const [championName, version] = getChampionIcon(
+    championNames?.participants[i]
+  );
   return (
     <Link
       className="pr-1 hidden md:flex flex-row hover:text-white"

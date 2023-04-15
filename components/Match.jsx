@@ -8,6 +8,10 @@ import Stats from "./Stats";
 import MatchHeader from "./MatchHeader";
 import MatchDetails from "./MatchDetails";
 import { useState } from "react";
+import useSWR from "swr";
+import { BASE_URL } from "../utils/baseURL";
+const fetcher = (path) => fetch(`${BASE_URL}${path}`).then((res) => res.json());
+
 const Match = ({
   server,
   match: {
@@ -34,6 +38,21 @@ const Match = ({
   const showDetailsHandler = () => {
     setShowDetails((showDetails) => !showDetails);
   };
+  const participantsChampionIds = participants.map(
+    (participant) => participant.championId
+  );
+  const searchParamsParticipants = new URLSearchParams({
+    championIds: participantsChampionIds.join(","),
+  });
+  const searchStringParticipants = searchParamsParticipants.toString();
+  const {
+    data: championNames,
+    error,
+    isLoading,
+  } = useSWR(
+    `/api/champion/${championId}?${searchStringParticipants}`,
+    fetcher
+  );
   return (
     <>
       <div
@@ -57,6 +76,7 @@ const Match = ({
               IDs={IDs}
               subStyle={subStyle}
               size={24}
+              championNames={championNames}
             />
             <Stats kda={kda} cs={cs} />
             <ItemsGrid
@@ -64,7 +84,11 @@ const Match = ({
               matchResult={matchResult}
               size={32}
             />
-            <Participants participants={participants} server={server} />
+            <Participants
+              participants={participants}
+              server={server}
+              championNames={championNames}
+            />
           </div>
         </div>
       </div>

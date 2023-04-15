@@ -24,7 +24,7 @@ const MainPage = () => {
   return (
     <div className="flex justify-center flex-col w-full h-full items-center">
       <div className="pb-16">
-        <Image src={logo} />
+        <Image src={logo} alt="logo" />
       </div>
       <div className="flex justify-center w-full h-full gap-4 flex-col items-center xl:flex-row">
         <div className="flex w-full md:w-6/12 gap-4">
