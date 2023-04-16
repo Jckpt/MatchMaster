@@ -1,8 +1,8 @@
 import React from "react";
 import { getChampionIcon } from "../utils/utilsFrontend";
 
-const ChampionIcon = ({ matchResult, championId, size, championNames }) => {
-  const [championName, version] = getChampionIcon(championNames?.subject);
+const ChampionIcon = ({ matchResult, championId, size, championObject }) => {
+  const [championName, version] = getChampionIcon(championObject);
   return (
     <div className="avatar">
       <div

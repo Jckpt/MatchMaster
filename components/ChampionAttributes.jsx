@@ -9,7 +9,7 @@ const ChampionAttributes = ({
   IDs,
   subStyle,
   size,
-  championNames,
+  championObject,
 }) => {
   const championIconSize = size * 2;
   return (
@@ -18,14 +18,14 @@ const ChampionAttributes = ({
         matchResult={matchResult}
         championId={championId}
         size={championIconSize}
-        championNames={championNames}
+        championObject={championObject}
       />
       <div className="flex flex-col">
-        {spells.map((spell, i) => (
+        {spells?.map((spell, i) => (
           <Summoners spell={spell} key={i} size={size} />
         ))}
       </div>
-      <Runes IDs={IDs} subStyle={subStyle} size={size} />
+      {/* <Runes IDs={IDs} subStyle={subStyle} size={size} /> */}
     </div>
   );
 };

@@ -1,6 +1,11 @@
 import React from "react";
-
-const MatchDetails = ({ showDetails, matchResult, participants }) => {
+import TeamDetails from "./TeamDetails";
+const MatchDetails = ({
+  showDetails,
+  matchResult,
+  participants,
+  championNames: { participants: championNames },
+}) => {
   const redTeam = participants.filter(
     (participant) => participant.team === "RED"
   );
@@ -9,21 +14,20 @@ const MatchDetails = ({ showDetails, matchResult, participants }) => {
   );
   return (
     <div
-      className={`card shadow-xl backdrop-blur-sm bg-opacity-50 bg-base-200 mb-3 w-full ${
+      className={`card shadow-xl overflow-x-scroll md:overflow-auto backdrop-blur-sm bg-opacity-50 bg-base-200 mb-3 w-full ${
         showDetails ? "flex" : "hidden"
       }`}
     >
-      <div>siema</div>
-      <div>
-        {redTeam.map((participant, i) => (
-          <div key={i}>{participant.summonerName}</div>
-        ))}
-      </div>
-      <div>
-        {blueTeam.map((participant, i) => (
-          <div key={i}>{participant.summonerName}</div>
-        ))}
-      </div>
+      <TeamDetails
+        team={blueTeam}
+        matchResult={matchResult}
+        championNames={championNames}
+      />
+      <TeamDetails
+        team={redTeam}
+        matchResult={matchResult}
+        championNames={championNames.slice(5)}
+      />
     </div>
   );
 };

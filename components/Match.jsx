@@ -66,7 +66,7 @@ const Match = ({
               IDs={IDs}
               subStyle={subStyle}
               size={24}
-              championNames={championNames}
+              championObject={championNames?.subject}
             />
             <Stats kda={kda} cs={cs} />
             <ItemsGrid
@@ -82,11 +82,14 @@ const Match = ({
           </div>
         </div>
       </div>
-      <MatchDetails
-        showDetails={showDetails}
-        matchResult={matchResult}
-        participants={participants}
-      />
+      {championNames === undefined ? null : (
+        <MatchDetails
+          showDetails={showDetails}
+          matchResult={matchResult}
+          participants={participants}
+          championNames={championNames}
+        />
+      )}
     </>
   );
 };

@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 const ItemIcon = ({ item, matchResult, size }) => {
   return (
     <>
@@ -10,10 +9,10 @@ const ItemIcon = ({ item, matchResult, size }) => {
           }`}
         ></div>
       ) : (
-        <Image
+        <img
           alt=""
-          className="rounded"
           samesite="Strict"
+          className={`rounded w-${size / 4} h-${size / 4}`}
           src={`https://cdn.mobalytics.gg/assets/lol/images/dd/game-items/${item}.png`}
           height={size}
           width={size}

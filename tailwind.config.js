@@ -12,6 +12,10 @@ module.exports = {
     "text-orange-500",
     "w-12",
     "h-12",
+    "w-9",
+    "h-9",
+    "w-8",
+    "h-8",
   ],
   theme: {
     extend: {
