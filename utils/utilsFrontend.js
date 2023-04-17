@@ -52,7 +52,10 @@ export const getWrColor = (WR) => {
 };
 
 export const getMatchResult = (summonerTeam, redTeam) => {
-  if (summonerTeam === "RED" && redTeam.result === "WON") {
+  if (
+    (summonerTeam === "RED" && redTeam.result === "WON") ||
+    (summonerTeam === "BLUE" && redTeam.result === "LOST")
+  ) {
     return "WON";
   }
   return "LOST";
@@ -96,4 +99,13 @@ export function prasedDuration(duration) {
   const paddedSeconds = seconds < 10 ? `0${seconds}` : seconds;
   const matchDuration = `${paddedMinutes}m ${paddedSeconds}s`;
   return matchDuration;
+}
+export function getHighestDamageDealt(team) {
+  let highestDamageDealt = 0;
+  team.forEach((participant) => {
+    if (participant.damageDealt > highestDamageDealt) {
+      highestDamageDealt = participant.damageDealt;
+    }
+  });
+  return highestDamageDealt;
 }

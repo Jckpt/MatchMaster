@@ -12,7 +12,7 @@ const ChampionIcon = ({ matchResult, championId, size, championObject }) => {
       >
         <img
           alt=""
-          samesite="Strict"
+          samesite="None"
           className={`scale-115 w-${size / 4} h-${size / 4}`}
           width={size}
           height={size}

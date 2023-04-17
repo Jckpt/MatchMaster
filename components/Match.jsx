@@ -88,6 +88,8 @@ const Match = ({
           matchResult={matchResult}
           participants={participants}
           championNames={championNames}
+          teams={teams}
+          server={server}
         />
       )}
     </>

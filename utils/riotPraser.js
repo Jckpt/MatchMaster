@@ -29,6 +29,7 @@ export const parsedParticipant = (participant) => {
     championLevel: participant.champLevel,
     team: teamColor(participant.teamId),
     cs: participant.totalMinionsKilled + participant.neutralMinionsKilled,
+    damageDealt: participant.totalDamageDealtToChampions,
     kda: {
       k: participant.kills,
       d: participant.deaths,
