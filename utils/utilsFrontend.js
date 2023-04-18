@@ -56,9 +56,9 @@ export const getMatchResult = (summonerTeam, redTeam) => {
     (summonerTeam === "RED" && redTeam.result === "WON") ||
     (summonerTeam === "BLUE" && redTeam.result === "LOST")
   ) {
-    return "WON";
+    return "LOST";
   }
-  return "LOST";
+  return "WON";
 };
 
 export function timeAgo(timestamp) {
