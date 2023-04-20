@@ -53,7 +53,7 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
               alt=""
               samesite="Strict"
               className="scale-115"
-              src={`http://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
+              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
               height={40}
               width={40}
             />
