@@ -51,10 +51,10 @@ export const getWrColor = (WR) => {
   }
 };
 
-export const getMatchResult = (summonerTeam, redTeam) => {
+export const getMatchResult = (summonerTeam, enemyTeam) => {
   if (
-    (summonerTeam === "RED" && redTeam.result === "WON") ||
-    (summonerTeam === "BLUE" && redTeam.result === "LOST")
+    (summonerTeam === "RED" && enemyTeam.result === "WON") ||
+    (summonerTeam === "BLUE" && enemyTeam.result === "LOST")
   ) {
     return "LOST";
   }

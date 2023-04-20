@@ -1,12 +1,14 @@
 import React from "react";
 import { summonerData } from "../utils/gameData";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 const Profile = async ({ username, server }) => {
   const {
     data: {
       lol: { player },
     },
   } = await summonerData(username, server);
+  if (player === null) notFound();
   return (
     <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body">

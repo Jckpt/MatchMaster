@@ -1,17 +1,10 @@
 import React from "react";
-import { getMatchHistory, getUserData } from "../utils/matchHistory";
 import MostPlayed from "./MostPlayed";
 import Rank from "./Rank";
 import Profile from "./Profile";
 import AllMatches from "./AllMatches";
 
 const Overview = async ({ username, server }) => {
-  const { matchesHistory: matches } = await getMatchHistory(
-    username,
-    server,
-    0
-  );
-
   return (
     <div className="flex flex-col w-full h-full">
       <div className="w-full flex flex-col lg:flex-row h-full">
