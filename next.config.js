@@ -13,7 +13,7 @@ const nextConfig = {
         pathname: "/assets/lol/images/**",
       },
       {
-        protocol: "http",
+        protocol: "https",
         hostname: "ddragon.leagueoflegends.com",
         port: "",
         pathname: "/cdn/**",
