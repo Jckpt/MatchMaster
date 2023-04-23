@@ -4,7 +4,7 @@ import React from "react";
 import { useState } from "react";
 import Match from "./Match";
 import { fetcher } from "../utils/utilsFrontend";
-
+import MatchSkeleton from "./MatchSkeleton";
 function LoadMore({ server, username }) {
   const [count, setCount] = useState(1);
   const pages = [];
@@ -32,7 +32,9 @@ function Page({ index, server, username }) {
   }
 
   if (!data) {
-    return <div>Loading...</div>;
+    return Array(10)
+      .fill()
+      .map((_, i) => <MatchSkeleton key={i} />);
   }
   return data?.matchesHistory?.map((match, i) => (
     <Match key={i} match={match} />
