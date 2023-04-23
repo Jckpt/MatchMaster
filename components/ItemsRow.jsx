@@ -2,7 +2,7 @@ import React from "react";
 import ItemIcon from "./ItemIcon";
 const ItemsRow = ({ finalBuild: { items, trinket }, matchResult, size }) => {
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row justify-center">
       {items.map((item, i) => (
         <ItemIcon item={item} matchResult={matchResult} size={size} key={i} />
       ))}

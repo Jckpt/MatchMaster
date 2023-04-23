@@ -20,7 +20,7 @@ const ChampionAttributes = ({
         size={championIconSize}
         championObject={championObject}
       />
-      <div className="flex flex-col h-full justify-around">
+      <div className="flex flex-col justify-around">
         {spells?.map((spell, i) => (
           <Summoners spell={spell} key={i} size={size} />
         ))}

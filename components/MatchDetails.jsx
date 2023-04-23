@@ -18,7 +18,7 @@ const MatchDetails = ({
   const redTeamResult = getMatchResult("RED", teams[0]);
   return (
     <div
-      className={`card shadow-xl overflow-x-scroll md:overflow-auto backdrop-blur-sm bg-opacity-50 bg-base-200 mb-3 w-full ${
+      className={`card shadow-xl overflow-x-scroll md:overflow-auto backdrop-blur-sm bg-opacity-50 mb-3 w-full text-stone-300 ${
         showDetails ? "flex" : "hidden"
       }`}
     >
@@ -28,6 +28,7 @@ const MatchDetails = ({
         championNames={championNames}
         server={server}
       />
+      <span className="mt-2"></span>
       <TeamDetails
         team={redTeam}
         matchResult={redTeamResult}
