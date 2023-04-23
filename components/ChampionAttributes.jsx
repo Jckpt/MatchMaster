@@ -13,14 +13,14 @@ const ChampionAttributes = ({
 }) => {
   const championIconSize = size * 2;
   return (
-    <div className="flex flex-row items-center">
+    <div className="flex flex-row items-center h-14">
       <ChampionIcon
         matchResult={matchResult}
         championId={championId}
         size={championIconSize}
         championObject={championObject}
       />
-      <div className="flex flex-col">
+      <div className="flex flex-col h-full justify-around">
         {spells?.map((spell, i) => (
           <Summoners spell={spell} key={i} size={size} />
         ))}

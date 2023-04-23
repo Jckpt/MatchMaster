@@ -3,7 +3,7 @@ import { getChampionIcon } from "../utils/utilsFrontend";
 import Link from "next/link";
 const Participants = ({ participants, server, championNames }) => {
   return (
-    <div className="grid grid-flow-col grid-rows-5">
+    <div className="grid grid-flow-col grid-rows-5 h-[125px]">
       {participants?.map(({ summonerName, team }, i) => (
         <Summoner
           summonerName={summonerName}

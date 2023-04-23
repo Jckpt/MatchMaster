@@ -5,9 +5,6 @@ import Navbar from "../../../components/Navbar";
 import Link from "next/link";
 import { useRouter, useParams } from "next/navigation";
 const NotFound = () => {
-  const router = useRouter();
-  const params = useParams();
-  console.log(params);
   return (
     <>
       <Navbar />

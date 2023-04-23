@@ -6,6 +6,7 @@ import {
   getWrColor,
   getChampionIconServer,
 } from "../utils/utilsFrontend";
+import { notFound } from "next/navigation";
 const MostPlayed = async ({ username, server }) => {
   const {
     data: {
@@ -16,6 +17,7 @@ const MostPlayed = async ({ username, server }) => {
       },
     },
   } = await summonerData(username, server);
+  if (mostPlayedChampions === null) notFound();
   return (
     <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body">

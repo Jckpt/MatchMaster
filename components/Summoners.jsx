@@ -7,13 +7,12 @@ const Summoners = ({ spell, size }) => {
         {spell === null ? (
           <div className="border-dashed border-2 border-gray-500 w-6 h-6"></div>
         ) : (
-          <Image
+          <img
             alt=""
             samesite="Strict"
             src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-spells/${spell}.png`}
             style={{ height: size, width: size }}
-            height={size}
-            width={size}
+            className="rounded"
           />
         )}
       </>

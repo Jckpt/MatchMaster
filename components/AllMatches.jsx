@@ -5,9 +5,10 @@ import LoadMore from "./LoadMore";
 import Match from "./Match";
 import useSWR from "swr";
 import { fetcher } from "../utils/utilsFrontend";
+import MatchSkeleton from "./MatchSkeleton";
 
 const AllMatches = ({ username, server }) => {
-  const { data, error } = useSWR(
+  const { data, isLoading, error } = useSWR(
     `/api/summoner/${server}/${username}?start=0`,
     fetcher
   );
@@ -16,9 +17,14 @@ const AllMatches = ({ username, server }) => {
     <>
       {matches !== null ? (
         <>
-          {matches?.map((match, i) => (
-            <Match key={i} match={match} server={server} />
-          ))}
+          {isLoading
+            ? Array(10)
+                .fill()
+                .map((_, i) => <MatchSkeleton key={i} />)
+            : matches?.map((match, i) => (
+                <Match key={i} match={match} server={server} />
+              ))}
+
           <LoadMore username={username} server={server} />
         </>
       ) : (

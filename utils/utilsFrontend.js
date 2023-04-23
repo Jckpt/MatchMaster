@@ -16,7 +16,7 @@ export const getVersion = async () => {
 export const getChampionIconServer = async (championId) => {
   const response = await fetch(`${BASE_URL}/api/champion/${championId}`);
   const data = await response.json();
-  return [data.champion.id, data.champion.version];
+  return [data.subject.id, data.subject.version];
 };
 
 export const getSearchParams = (participants) => {
