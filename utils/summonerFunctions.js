@@ -48,7 +48,7 @@ export const getMatchOverwiew = async (region, matchId, puuid) => {
 
   const data = {
     matchId: rawData.info.gameId,
-    startedAt: rawData.info.gameStartTimestamp,
+    startedAt: rawData.info.gameStartTimestamp - rawData.info.gameDuration,
     duration: rawData.info.gameDuration,
 
     queue: getQueueName(rawData.info.queueId),
