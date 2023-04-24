@@ -8,38 +8,39 @@ import {
 } from "../utils/utilsFrontend";
 import Link from "next/link";
 import DamageBar from "./DamageBar";
+import ItemsGrid from "./ItemsGrid";
 const TeamDetails = ({ team, matchResult, championNames, server }) => {
   const highestDamageDealt = getHighestDamageDealt(team);
   const highestDamageTaken = getHighestDamageTaken(team);
   const teamColor = team[0].team;
   return (
-    <>
+    <div class="overflow-x-scroll md:overflow-x-auto">
       <table className="table w-full">
         <thead className="text-center">
           <tr>
             <th
-              className={`border-none backdrop-blur-sm w-64 bg-opacity-30 ${
+              className={`border-none w-48 bg-opacity-30 ${
                 matchResult === "WON" ? "bg-blue-500" : "bg-red-600"
               }`}
             >
               {matchResult} ({teamColor} Team)
             </th>
             <th
-              className={`border-none backdrop-blur-sm bg-opacity-30 ${
+              className={`border-none bg-opacity-30 ${
                 matchResult === "WON" ? "bg-blue-500" : "bg-red-600"
               }`}
             >
               Stats
             </th>
             <th
-              className={`border-none backdrop-blur-sm bg-opacity-30 ${
+              className={`border-none bg-opacity-30 hidden md:table-cell ${
                 matchResult === "WON" ? "bg-blue-500" : "bg-red-600"
               }`}
             >
-              Damage Dealt
+              Damage
             </th>
             <th
-              className={`border-none backdrop-blur-sm bg-opacity-30 ${
+              className={`border-none bg-opacity-30 w-3 ${
                 matchResult === "WON" ? "bg-blue-500" : "bg-red-600"
               }`}
             >
@@ -68,7 +69,7 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
             ) => (
               <tr key={i} className="">
                 <th
-                  className={`flex flex-row items-center p-0 pl-2 w-64 border-none backdrop-blur-sm bg-opacity-50 ${
+                  className={`flex flex-row items-center p-2 md:p-0 md:pl-2 w-48 border-none bg-opacity-50 ${
                     matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
                   }`}
                 >
@@ -88,14 +89,14 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                   </Link>
                 </th>
                 <th
-                  className={`text-xs p-0 border-none backdrop-blur-sm bg-opacity-50 ${
+                  className={`text-xs p-0 border-none w-28 bg-opacity-50 ${
                     matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
                   }`}
                 >
                   <Stats kda={kda} cs={cs} />
                 </th>
                 <th
-                  className={`p-0 border-none backdrop-blur-sm bg-opacity-50 ${
+                  className={`p-0 border-none bg-opacity-50 hidden md:table-cell ${
                     matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
                   }`}
                 >
@@ -106,6 +107,7 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                     <DamageBar
                       damage={damageDealt}
                       highestDamage={highestDamageDealt}
+                      accent={matchResult}
                     />
                   </div>
                   <div
@@ -119,22 +121,31 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                   </div>
                 </th>
                 <th
-                  className={`p-0 border-none backdrop-blur-sm bg-opacity-50 ${
+                  className={`p-0 border-none bg-opacity-50 w-48 ${
                     matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
                   }`}
                 >
-                  <ItemsRow
-                    matchResult={matchResult}
-                    finalBuild={finalBuild}
-                    size={24}
-                  />
+                  <div className="hidden md:table-cell">
+                    <ItemsRow
+                      finalBuild={finalBuild}
+                      size={24}
+                      matchResult={matchResult}
+                    />
+                  </div>
+                  <div className="md:hidden p-2">
+                    <ItemsGrid
+                      finalBuild={finalBuild}
+                      matchResult={matchResult}
+                      size={24}
+                    />
+                  </div>
                 </th>
               </tr>
             )
           )}
         </tbody>
       </table>
-    </>
+    </div>
   );
 };
 

@@ -29,14 +29,16 @@ const Summoner = ({ summonerName, team, server, championNames, i }) => {
     >
       <div className="avatar">
         <div className="w-6 h-6 rounded">
-          <img
-            alt=""
-            samesite="Strict"
-            className="scale-115"
-            src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
-            height={24}
-            width={24}
-          />
+          {championName === "undefined" ? null : (
+            <img
+              alt=""
+              samesite="Strict"
+              className="scale-115"
+              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
+              height={24}
+              width={24}
+            />
+          )}
         </div>
       </div>
       <div className="pl-1">

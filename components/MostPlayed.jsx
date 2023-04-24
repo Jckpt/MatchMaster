@@ -41,7 +41,7 @@ const MostPlayed = async ({ username, server }) => {
 };
 
 const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
-  const [championName, version] = await getChampionIconServer(championId);
+  const [cId, version, cName] = await getChampionIconServer(championId);
   const KDA = ((kda.k + kda.a) / kda.d).toFixed(2);
   const KdaColor = getKdaColor(KDA);
   const WR = ((wins / (wins + looses)) * 100).toFixed(0);
@@ -55,14 +55,14 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
               alt=""
               samesite="Strict"
               className="scale-115"
-              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${championName}.png`}
+              src={`https://ddragon.leagueoflegends.com/cdn/${version}/img/champion/${cId}.png`}
               height={40}
               width={40}
             />
           </div>
         </div>
         <div className="pl-2">
-          <div className="capitalize">{championName}</div>
+          <div className="capitalize">{cName}</div>
           <div className="text-xs">{csm.toFixed(1)} CS/M</div>
         </div>
       </div>

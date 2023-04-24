@@ -16,7 +16,7 @@ export const getVersion = async () => {
 export const getChampionIconServer = async (championId) => {
   const response = await fetch(`${BASE_URL}/api/champion/${championId}`);
   const data = await response.json();
-  return [data.subject.id, data.subject.version];
+  return [data.subject.id, data.subject.version, data.subject.name];
 };
 
 export const getSearchParams = (participants) => {
@@ -110,11 +110,11 @@ export function getHighestDamageDealt(team) {
   return highestDamageDealt;
 }
 export function getHighestDamageTaken(team) {
-  let highestDamageDealt = 0;
+  let highestDamageTaken = 0;
   team.forEach((participant) => {
-    if (participant.damageDealt > highestDamageDealt) {
-      highestDamageDealt = participant.damageDealt;
+    if (participant.damageTaken > highestDamageTaken) {
+      highestDamageTaken = participant.damageTaken;
     }
   });
-  return highestDamageDealt;
+  return highestDamageTaken;
 }

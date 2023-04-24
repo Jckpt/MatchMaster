@@ -18,7 +18,7 @@ const MatchDetails = ({
   const redTeamResult = getMatchResult("RED", teams[0]);
   return (
     <div
-      className={`card shadow-xl overflow-x-scroll md:overflow-auto backdrop-blur-sm bg-opacity-50 mb-3 w-full text-stone-300 ${
+      className={`card shadow-xl backdrop-blur-sm bg-opacity-50 mb-3 w-full text-stone-300 ${
         showDetails ? "flex" : "hidden"
       }`}
     >
