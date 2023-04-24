@@ -24,7 +24,10 @@ function LoadMore({ server, username }) {
 function Page({ index, server, username }) {
   const { data, error } = useSWR(
     `/api/summoner/${server}/${username}?start=${index * 10}`,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   );
 
   if (error) {
@@ -37,7 +40,7 @@ function Page({ index, server, username }) {
       .map((_, i) => <MatchSkeleton key={i} />);
   }
   return data?.matchesHistory?.map((match, i) => (
-    <Match key={i} match={match} />
+    <Match key={i} match={match} server={server} />
   ));
 }
 export default LoadMore;

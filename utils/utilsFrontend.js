@@ -109,3 +109,12 @@ export function getHighestDamageDealt(team) {
   });
   return highestDamageDealt;
 }
+export function getHighestDamageTaken(team) {
+  let highestDamageDealt = 0;
+  team.forEach((participant) => {
+    if (participant.damageDealt > highestDamageDealt) {
+      highestDamageDealt = participant.damageDealt;
+    }
+  });
+  return highestDamageDealt;
+}

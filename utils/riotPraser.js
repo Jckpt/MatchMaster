@@ -30,6 +30,7 @@ export const parsedParticipant = (participant) => {
     team: teamColor(participant.teamId),
     cs: participant.totalMinionsKilled + participant.neutralMinionsKilled,
     damageDealt: participant.totalDamageDealtToChampions,
+    damageTaken: participant.totalDamageTaken,
     kda: {
       k: participant.kills,
       d: participant.deaths,

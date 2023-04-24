@@ -42,7 +42,9 @@ const Match = ({
     data: championNames,
     error,
     isLoading,
-  } = useSWR(`/api/champion/${championId}?${searchParams}`, fetcher);
+  } = useSWR(`/api/champion/${championId}?${searchParams}`, fetcher, {
+    revalidateOnFocus: false,
+  });
   return (
     <>
       <div

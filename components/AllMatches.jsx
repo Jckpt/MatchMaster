@@ -10,7 +10,10 @@ import MatchSkeleton from "./MatchSkeleton";
 const AllMatches = ({ username, server }) => {
   const { data, isLoading, error } = useSWR(
     `/api/summoner/${server}/${username}?start=0`,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: false,
+    }
   );
   const matches = data?.matchesHistory;
   return (

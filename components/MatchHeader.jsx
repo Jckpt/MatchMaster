@@ -7,7 +7,8 @@ const MatchHeader = ({
   matchResult,
   showDetailsHandler,
 }) => {
-  const timeAgoDate = timeAgo(startedAt);
+  console.log(startedAt);
+  const timeAgoDate = timeAgo(startedAt - duration);
   const matchDuration = prasedDuration(duration);
   return (
     <>

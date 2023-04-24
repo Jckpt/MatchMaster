@@ -2,10 +2,15 @@ import React from "react";
 import ChampionAttributes from "./ChampionAttributes";
 import Stats from "./Stats";
 import ItemsRow from "./ItemsRow";
-import { getHighestDamageDealt } from "../utils/utilsFrontend";
+import {
+  getHighestDamageDealt,
+  getHighestDamageTaken,
+} from "../utils/utilsFrontend";
 import Link from "next/link";
+import DamageBar from "./DamageBar";
 const TeamDetails = ({ team, matchResult, championNames, server }) => {
   const highestDamageDealt = getHighestDamageDealt(team);
+  const highestDamageTaken = getHighestDamageTaken(team);
   const teamColor = team[0].team;
   return (
     <>
@@ -51,6 +56,7 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                 summonerName,
                 finalBuild,
                 championId,
+                damageTaken,
                 damageDealt,
                 cs,
                 build: {
@@ -97,11 +103,19 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                     className="flex justify-center tooltip"
                     data-tip={`Damage dealt: ${damageDealt}`}
                   >
-                    <progress
-                      className="progress w-28"
-                      value={damageDealt}
-                      max={highestDamageDealt}
-                    ></progress>
+                    <DamageBar
+                      damage={damageDealt}
+                      highestDamage={highestDamageDealt}
+                    />
+                  </div>
+                  <div
+                    className="flex justify-center tooltip mt-1.5"
+                    data-tip={`Damage taken: ${damageTaken}`}
+                  >
+                    <DamageBar
+                      damage={damageTaken}
+                      highestDamage={highestDamageTaken}
+                    />
                   </div>
                 </th>
                 <th
