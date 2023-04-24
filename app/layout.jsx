@@ -8,6 +8,13 @@ const roboto = Roboto({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
+      <title>MatchMaster</title>
+      <meta
+        name="description"
+        content="MatchMaster - League of Legends match history app"
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/logo-isolated.svg" />
       <body>{children}</body>
     </html>
   );

@@ -14,7 +14,7 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
   const highestDamageTaken = getHighestDamageTaken(team);
   const teamColor = team[0].team;
   return (
-    <div class="overflow-x-scroll md:overflow-x-auto">
+    <div className="overflow-x-scroll md:overflow-x-auto">
       <table className="table w-full">
         <thead className="text-center">
           <tr>
