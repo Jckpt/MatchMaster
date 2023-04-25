@@ -10,7 +10,7 @@ const ChampionIcon = ({ matchResult, championId, size, championObject }) => {
           matchResult === "WON" ? "border-blue-500" : "border-red-500"
         } mr-2`}
       >
-        {championName === "undefined" ? null : (
+        {championName === undefined ? null : (
           <img
             alt=""
             samesite="Strict"
