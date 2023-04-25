@@ -10,9 +10,8 @@ export async function generateMetadata({ params: { username, server } }) {
       lol: { player },
     },
   } = await summonerData(username, server);
-  console.log(player);
   return {
-    title: `${decodeURI(username)} | MatchMaster`,
+    title: `${decodeURI(username)} | MatchMaster - Summoner Stats`,
   };
 }
 

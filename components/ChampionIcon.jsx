@@ -13,7 +13,6 @@ const ChampionIcon = ({ matchResult, championId, size, championObject }) => {
         {championName === undefined ? null : (
           <img
             alt=""
-            samesite="Strict"
             className={`scale-115 w-${size / 4} h-${size / 4}`}
             width={size}
             height={size}

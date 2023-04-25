@@ -31,7 +31,6 @@ const MainPage = () => {
       revalidateOnFocus: false,
     }
   );
-  console.log(data);
   return (
     <div className="flex justify-center mb-20 flex-col w-full h-full items-center">
       <div className="pb-72 md:pb-16">
@@ -68,8 +67,8 @@ const MainPage = () => {
               onKeyDown={handleKeyDown}
             />
             <ul
-              tabindex="0"
-              class="dropdown-content md:mt-2 mb-2 menu p-0 shadow bg-base-100 rounded-box w-full backdrop-blur-sm bg-opacity-30"
+              tabIndex={0}
+              className="dropdown-content md:mt-2 mb-2 menu p-0 shadow bg-base-100 rounded-box w-full backdrop-blur-sm bg-opacity-30"
             >
               <li className="pl-2 select-none">
                 {server} | Highest ranked players

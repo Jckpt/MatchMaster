@@ -12,7 +12,7 @@ const Summoners = ({ spell, size }) => {
             samesite="Strict"
             src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-spells/${spell}.png`}
             style={{ height: size, width: size }}
-            className="rounded"
+            className="rounded m-0.5"
           />
         )}
       </>
