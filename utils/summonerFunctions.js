@@ -80,7 +80,7 @@ export async function getChallengers(server) {
     }
   );
   const data = await response.json();
-  const challengers = data.entries.slice(0, 10).map((challenger) => {
+  const challengers = data.entries.map((challenger) => {
     return challenger.summonerName;
   });
   return challengers;

@@ -2,8 +2,15 @@ import React from "react";
 import Overview from "../../../components/Overview";
 import Hero from "../../../components/Hero";
 import Navbar from "../../../components/Navbar";
+import { summonerData } from "../../../utils/gameData";
 
 export async function generateMetadata({ params: { username, server } }) {
+  const {
+    data: {
+      lol: { player },
+    },
+  } = await summonerData(username, server);
+  console.log(player);
   return {
     title: `${username} | MatchMaster`,
   };
