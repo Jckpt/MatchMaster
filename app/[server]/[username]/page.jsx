@@ -12,7 +12,7 @@ export async function generateMetadata({ params: { username, server } }) {
   } = await summonerData(username, server);
   console.log(player);
   return {
-    title: `${username} | MatchMaster`,
+    title: `${decodeURI(username)} | MatchMaster`,
   };
 }
 
