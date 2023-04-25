@@ -61,3 +61,17 @@ export async function championKeyMap(version) {
 export function getChampion(championKeys, championId) {
   return championKeys.get(championId);
 }
+export async function itemKeyMap(version) {
+  const response = await fetch(
+    `https://ddragon.leagueoflegends.com/cdn/${version}/data/en_US/item.json`
+  );
+  const data = await response.json();
+  const itemKeyMap = new Map();
+  for (const item in data.data) {
+    itemKeyMap.set(item, data.data[item]);
+  }
+  return itemKeyMap;
+}
+export function getItem(itemKeys, itemId) {
+  return itemKeys.get(itemId);
+}
