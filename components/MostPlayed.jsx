@@ -21,7 +21,6 @@ const MostPlayed = async ({ username, server }) => {
   return (
     <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body">
-        <h2 className="card-title">Most played</h2>
         {mostPlayedChampions.map(
           ({ championId, kda, csm, wins, looses, kp }, i) => (
             <PlayedChampion
@@ -62,7 +61,7 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
           </div>
         </div>
         <div className="pl-2">
-          <div className="capitalize">{cName}</div>
+          <div className="capitalize text-stone-200">{cName}</div>
           <div className="text-xs">{csm.toFixed(1)} CS/M</div>
         </div>
       </div>

@@ -8,7 +8,7 @@ const DamageBar = ({ damage, highestDamage, accent }) => {
       ? "bg-red-600"
       : "bg-slate-400";
   return (
-    <div className={`rounded-full w-28 h-2 bg-slate-500 bg-opacity-30 flex`}>
+    <div className={`rounded-full w-28 h-2 bg-stone-300 bg-opacity-30 flex`}>
       <div
         style={{
           width: `${(damage / highestDamage) * 100}%`,

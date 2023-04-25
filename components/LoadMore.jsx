@@ -14,7 +14,10 @@ function LoadMore({ server, username }) {
   return (
     <>
       {pages}
-      <button className="btn btn-wide" onClick={() => setCount(count + 1)}>
+      <button
+        className="btn btn-wide bg-opacity-50"
+        onClick={() => setCount(count + 1)}
+      >
         Load More
       </button>
     </>

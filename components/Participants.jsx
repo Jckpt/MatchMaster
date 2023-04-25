@@ -1,6 +1,7 @@
 import React from "react";
 import { getChampionIcon } from "../utils/utilsFrontend";
 import Link from "next/link";
+import Image from "next/image";
 const Participants = ({ participants, server, championNames }) => {
   return (
     <div className="grid grid-flow-col grid-rows-5 h-[125px]">
@@ -30,7 +31,7 @@ const Summoner = ({ summonerName, team, server, championNames, i }) => {
       <div className="avatar">
         <div className="w-6 h-6 rounded">
           {championName === undefined ? null : (
-            <img
+            <Image
               alt=""
               samesite="Strict"
               className="scale-115"

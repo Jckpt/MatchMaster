@@ -11,7 +11,7 @@ const ItemIcon = ({ item, matchResult, size }) => {
       ) : (
         <img
           alt=""
-          samesite="Strict"
+          samesite="None"
           className={`rounded w-${size / 4} h-${size / 4}`}
           src={`https://cdn.mobalytics.gg/assets/lol/images/dd/game-items/${item}.png`}
           height={size}

@@ -53,12 +53,12 @@ const RankText = async ({ item }) => {
         height={80}
       />
       <div className="flex flex-col">
-        <p className="capitalize">{queue}</p>
-        <p className="capitalize">
+        <span className="capitalize">{queue}</span>
+        <span className="capitalize">
           <span className="text-stone-50">{item.rank.tier.toLowerCase()}</span>
           <span className="ml-2">{item.lp} LP</span>
-        </p>
-        <p className="capitalize flex justify-between">
+        </span>
+        <span className="capitalize flex justify-between">
           <div>
             <span className="text-stone-200">{item.wins}</span>W
             <span className="text-stone-200 ml-1">{item.losses}</span>L
@@ -68,7 +68,7 @@ const RankText = async ({ item }) => {
               {(item.winrate * 100).toFixed(1)}%
             </span>
           </div>
-        </p>
+        </span>
         <div className={`rounded-full w-40 h-1 bg-red-500 flex`}>
           <div
             style={{

@@ -25,7 +25,7 @@ const ChampionAttributes = ({
           <Summoners spell={spell} key={i} size={size} />
         ))}
       </div>
-      {/* <Runes IDs={IDs} subStyle={subStyle} size={size} /> */}
+      <Runes IDs={IDs} subStyle={subStyle} size={size} />
     </div>
   );
 };

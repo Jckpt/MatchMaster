@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 const Summoners = ({ spell, size }) => {
   return (
     <div className="avatar rounded">

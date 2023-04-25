@@ -2,7 +2,7 @@ import React from "react";
 const Runes = ({ IDs, subStyle, size }) => {
   return (
     <div className="flex flex-col">
-      <div className={`avatar w-${size / 4} h-${size / 4}`}>
+      <div className={`avatar m-0.5`} style={{ height: size, width: size }}>
         <img
           alt=""
           src={`https://cdn.mobalytics.gg/assets/lol/images/perks/${IDs[0]}.png`}
@@ -10,7 +10,7 @@ const Runes = ({ IDs, subStyle, size }) => {
           width={size}
         />
       </div>
-      <div className={`avatar w-${size / 4} h-${size / 4}`}>
+      <div className={`avatar m-0.5`} style={{ height: size, width: size }}>
         <img
           alt=""
           src={`https://cdn.mobalytics.gg/assets/lol/images/perks/${subStyle}.png`}
