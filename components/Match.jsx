@@ -6,7 +6,8 @@ import ChampionAttributes from "./ChampionAttributes";
 import Stats from "./Stats";
 import MatchHeader from "./MatchHeader";
 import MatchDetails from "./MatchDetails";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import autoAnimate from "@formkit/auto-animate";
 import useSWR from "swr";
 import { getSearchParams, getMatchResult } from "../utils/utilsFrontend";
 import { fetcher } from "../utils/utilsFrontend";
@@ -45,8 +46,13 @@ const Match = ({
   } = useSWR(`/api/champion/${championId}?${searchParams}`, fetcher, {
     revalidateOnFocus: false,
   });
+  const parent = useRef(null);
+
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current);
+  }, [parent]);
   return (
-    <>
+    <div className="w-full" ref={parent}>
       <div
         className={`card shadow-xl backdrop-blur-sm bg-opacity-50 mb-3 w-full ${
           matchResult === "WON" ? "bg-blue-500" : "bg-red-500"
@@ -84,7 +90,7 @@ const Match = ({
           </div>
         </div>
       </div>
-      {championNames === undefined ? null : (
+      {showDetails && (
         <MatchDetails
           showDetails={showDetails}
           matchResult={matchResult}
@@ -94,7 +100,7 @@ const Match = ({
           server={server}
         />
       )}
-    </>
+    </div>
   );
 };
 

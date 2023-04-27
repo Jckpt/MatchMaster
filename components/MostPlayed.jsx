@@ -11,31 +11,32 @@ const MostPlayed = async ({ username, server }) => {
   const {
     data: {
       lol: {
-        player: {
-          championsStats: { items: mostPlayedChampions },
-        },
+        player: { championsStats },
       },
     },
   } = await summonerData(username, server);
-  if (mostPlayedChampions === null) notFound();
   return (
-    <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
-      <div className="card-body">
-        {mostPlayedChampions.map(
-          ({ championId, kda, csm, wins, looses, kp }, i) => (
-            <PlayedChampion
-              championId={championId}
-              kda={kda}
-              csm={csm}
-              wins={wins}
-              looses={looses}
-              kp={kp}
-              key={i}
-            />
-          )
-        )}
-      </div>
-    </div>
+    <>
+      {championsStats === null ? null : (
+        <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
+          <div className="card-body">
+            {championsStats?.items.map(
+              ({ championId, kda, csm, wins, looses, kp }, i) => (
+                <PlayedChampion
+                  championId={championId}
+                  kda={kda}
+                  csm={csm}
+                  wins={wins}
+                  looses={looses}
+                  kp={kp}
+                  key={i}
+                />
+              )
+            )}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

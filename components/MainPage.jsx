@@ -1,18 +1,18 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import logo from "../public/logo.svg";
 import Image from "next/image";
 import useSWR from "swr";
 import { fetcher } from "../utils/utilsFrontend";
+import autoAnimate from "@formkit/auto-animate";
 
 const MainPage = () => {
   const [username, setUsername] = useState("");
   const [server, setServer] = useState("NA");
   const router = useRouter();
-
   const handleTextChange = (e) => {
     setUsername(e.target.value);
   };
@@ -31,6 +31,7 @@ const MainPage = () => {
       revalidateOnFocus: false,
     }
   );
+
   return (
     <div className="flex justify-center mb-20 flex-col w-full h-full items-center">
       <div className="pb-72 md:pb-16">

@@ -6,7 +6,7 @@ import Match from "./Match";
 import useSWR from "swr";
 import { fetcher } from "../utils/utilsFrontend";
 import MatchSkeleton from "./MatchSkeleton";
-
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 const AllMatches = ({ username, server }) => {
   const { data, isLoading, error } = useSWR(
     `/api/summoner/${server}/${username}?start=0`,
@@ -15,9 +15,11 @@ const AllMatches = ({ username, server }) => {
       revalidateOnFocus: false,
     }
   );
+  const [parent, enableAnimations] = useAutoAnimate(/* optional config */);
+
   const matches = data?.matchesHistory;
   return (
-    <>
+    <div className="lg:w-3/5 flex flex-col items-center" ref={parent}>
       {matches !== null ? (
         <>
           {isLoading
@@ -33,7 +35,7 @@ const AllMatches = ({ username, server }) => {
       ) : (
         <NoMatches />
       )}
-    </>
+    </div>
   );
 };
 

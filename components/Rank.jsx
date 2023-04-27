@@ -32,13 +32,17 @@ const Rank = async ({ username, server }) => {
     },
   } = await summonerData(username, server);
   return (
-    <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
-      <div className="card-body flex-col justify-center">
-        {items.map((item, i) => {
-          return <RankText key={i} item={item} />;
-        })}
-      </div>
-    </div>
+    <>
+      {items === null ? null : (
+        <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
+          <div className="card-body flex-col justify-center">
+            {items.map((item, i) => {
+              return <RankText key={i} item={item} />;
+            })}
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 const RankText = async ({ item }) => {

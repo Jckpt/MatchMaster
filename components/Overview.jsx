@@ -13,9 +13,7 @@ const Overview = async ({ username, server }) => {
           <Rank username={username} server={server} />
           <MostPlayed username={username} server={server} />
         </div>
-        <div className="lg:w-3/5 flex flex-col items-center">
-          <AllMatches username={username} server={server} />
-        </div>
+        <AllMatches username={username} server={server} />
       </div>
     </div>
   );
