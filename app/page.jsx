@@ -4,6 +4,13 @@ import MainPage from "../components/MainPage";
 import Link from "next/link";
 import logo from "../public/logo-isolated.svg";
 import Image from "next/image";
+
+export function generateMetadata({ params: { username, server } }) {
+  return {
+    title: `MatchMaster - Summoner Stats`,
+  };
+}
+
 const page = () => {
   return (
     <>

@@ -8,7 +8,6 @@ const roboto = Roboto({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={roboto.className}>
-      <title>MatchMaster - Summoner Stats</title>
       <meta
         name="description"
         content="MatchMaster - League of Legends match history app - Summoner Stats"
