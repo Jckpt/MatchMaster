@@ -47,13 +47,9 @@ const MainPage = () => {
             <option>EUW</option>
             <option>EUNE</option>
             <option>NA</option>
-            <option>OCE</option>
             <option>KR</option>
             <option>BR</option>
             <option>JP</option>
-            <option>NA</option>
-            <option>LAS</option>
-            <option>LAN</option>
             <option>RU</option>
             <option>TR</option>
           </select>
