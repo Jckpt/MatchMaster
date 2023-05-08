@@ -21,13 +21,11 @@ const Loading = () => {
               {/* Rank */}
               <div className="card animate-pulse w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
                 <div className="card-body flex-col justify-center">
-                  <div className="flex flex-row">
-                    {Array(3)
-                      .fill()
-                      .map((_, i) => (
-                        <Rank key={i} />
-                      ))}
-                  </div>
+                  {Array(3)
+                    .fill()
+                    .map((_, i) => (
+                      <Rank key={i} />
+                    ))}
                 </div>
               </div>
               {/* Most Played */}
