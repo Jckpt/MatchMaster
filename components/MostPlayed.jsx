@@ -61,7 +61,7 @@ const PlayedChampion = async ({ championId, kda, csm, wins, looses, kp }) => {
             />
           </div>
         </div>
-        <div className="pl-2">
+        <div className="pl-2 flex flex-col">
           <div className="capitalize text-stone-200">{cName}</div>
           <div className="text-xs">{csm.toFixed(1)} CS/M</div>
         </div>

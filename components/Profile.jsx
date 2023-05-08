@@ -13,8 +13,8 @@ const Profile = async ({ username, server }) => {
   return (
     <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body flex justify-center items-center">
-        <div className="avatar  ">
-          <div className="rounded-full border-4 border-[#9c98d8]">
+        <div className="avatar">
+          <div className="rounded-full w-[104px] h-[104px] border-4 border-[#9c98d8]">
             <Image
               alt=""
               samesite="Strict"
