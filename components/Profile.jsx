@@ -17,7 +17,7 @@ const Profile = async ({ username, server }) => {
             <Image
               alt=""
               samesite="Strict"
-              src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/1337.png?1`}
+              src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/${player.icon}.png?1`}
               width={96}
               height={96}
             />
