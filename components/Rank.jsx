@@ -24,19 +24,16 @@ const getRankImgName = (tier, division) => {
 const Rank = async ({ username, server }) => {
   const {
     data: {
-      lol: {
-        player: {
-          queuesStats: { items },
-        },
-      },
+      lol: { player },
     },
   } = await summonerData(username, server);
+  console.log(player.queuesStats);
   return (
     <>
-      {items === null ? null : (
+      {player === null || player.queuesStats.items === null ? null : (
         <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
           <div className="card-body flex-col justify-center">
-            {items.map((item, i) => {
+            {player.queuesStats.items.map((item, i) => {
               return <RankText key={i} item={item} />;
             })}
           </div>

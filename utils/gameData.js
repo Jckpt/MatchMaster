@@ -33,7 +33,6 @@ export const summonerData = async (summonerName, server) => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-
   return res.json();
 };
 export async function getLatestVersion() {

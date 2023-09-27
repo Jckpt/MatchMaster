@@ -10,17 +10,15 @@ import { notFound } from "next/navigation";
 const MostPlayed = async ({ username, server }) => {
   const {
     data: {
-      lol: {
-        player: { championsStats },
-      },
+      lol: { player },
     },
   } = await summonerData(username, server);
   return (
     <>
-      {championsStats === null ? null : (
+      {player === null ? null : (
         <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
           <div className="card-body">
-            {championsStats?.items.map(
+            {player?.championsStats?.items.map(
               ({ championId, kda, csm, wins, looses, kp }, i) => (
                 <PlayedChampion
                   championId={championId}

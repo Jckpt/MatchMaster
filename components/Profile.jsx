@@ -9,7 +9,6 @@ const Profile = async ({ username, server }) => {
       lol: { player },
     },
   } = await summonerData(username, server);
-  if (player === null) notFound();
   return (
     <div className="card w-full mb-4 bg-base-200 backdrop-blur-sm bg-opacity-50 shadow-xl">
       <div className="card-body flex justify-center items-center">
@@ -18,7 +17,7 @@ const Profile = async ({ username, server }) => {
             <Image
               alt=""
               samesite="Strict"
-              src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/${player.icon}.png?1`}
+              src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-icons/1337.png?1`}
               width={96}
               height={96}
             />
