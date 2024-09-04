@@ -81,9 +81,14 @@ export async function getChallengers(server) {
       },
     }
   );
-  const data = await response.json();
+
+  let data = await response.json();
+
+  // trim data.entries to 10 to avoid rate limiting
+  data.entries = data.entries.slice(0, 10);
+
   const challengers = await data.entries.map(async (challenger) => {
-    const response = await fetch(
+    const summonerFetch = await fetch(
       `https://${server}.api.riotgames.com/lol/summoner/v4/summoners/${challenger.summonerId}`,
       {
         headers: {
@@ -91,9 +96,9 @@ export async function getChallengers(server) {
         },
       }
     );
-    const data = await response.json();
-    const puuid = data.puuid;
-    const puuidFetch = await fetch(
+    const summonerData = await summonerFetch.json();
+    const puuid = summonerData.puuid;
+    const accountFetch = await fetch(
       `https://europe.api.riotgames.com/riot/account/v1/accounts/by-puuid/${puuid}`,
       {
         headers: {
@@ -101,8 +106,9 @@ export async function getChallengers(server) {
         },
       }
     );
-    const summonerData = await puuidFetch.json();
-    return `${summonerData.gameName}#${summonerData.tagLine}`;
+    const accountData = await accountFetch.json();
+    console.log(accountData);
+    return `${accountData.gameName}#${accountData.tagLine}`;
   });
-  return challengers;
+  return Promise.all(challengers);
 }
