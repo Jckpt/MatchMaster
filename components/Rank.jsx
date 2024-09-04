@@ -14,11 +14,10 @@ const getQueueName = (queue) => {
       return "Unranked";
   }
 };
-const getRankImgName = (tier, division) => {
+const getRankImgName = (tier) => {
   let tierName = tier.toLowerCase();
-  let divisionName = division.toLowerCase();
   if (tierName === "unranked" || tierName === undefined) return "unranked";
-  return `${tierName}_${divisionName}`;
+  return tierName;
 };
 
 const Rank = async ({ username, server }) => {
@@ -43,11 +42,11 @@ const Rank = async ({ username, server }) => {
 };
 const RankText = async ({ item }) => {
   const queue = getQueueName(item.queue);
-  const rankImgName = getRankImgName(item.rank.tier, item.rank.division);
+  const rankImgName = getRankImgName(item.rank.tier);
   return (
-    <div className="flex flex-row m-2">
-      <Image
-        src={`https://cdn.mobalytics.gg/assets/lol/images/rank-icon/helm/${rankImgName}.png`}
+    <div className="flex flex-row m-2 gap-4">
+      <img
+        src={`https://cdn.mobalytics.gg/assets/lol/images/rank-icon/summoner-tier/${rankImgName}.png`}
         alt="rank"
         width={80}
         height={80}
