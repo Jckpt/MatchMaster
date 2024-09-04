@@ -45,7 +45,7 @@ const RankText = async ({ item }) => {
   const rankImgName = getRankImgName(item.rank.tier);
   return (
     <div className="flex flex-row m-2 gap-4">
-      <img
+      <Image
         src={`https://cdn.mobalytics.gg/assets/lol/images/rank-icon/summoner-tier/${rankImgName}.png`}
         alt="rank"
         width={80}
