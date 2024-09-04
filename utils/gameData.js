@@ -1,5 +1,6 @@
-export const summonerData = async (summonerName, server) => {
-  summonerName = decodeURIComponent(summonerName);
+export const summonerData = async (summonerNameWithTag, server) => {
+  summonerNameWithTag = decodeURIComponent(summonerNameWithTag);
+  let [summonerName, tag] = summonerNameWithTag.split("#");
   const res = await fetch(
     "https://app.mobalytics.gg/api/lol/graphql/v1/query",
     {
@@ -19,7 +20,7 @@ export const summonerData = async (summonerName, server) => {
       },
       referrer: `https://app.mobalytics.gg/lol/profile/${server}/${summonerName}/overview`,
       referrerPolicy: "strict-origin-when-cross-origin",
-      body: `{"operationName":"LolProfilePageSummonerInfoQuery","variables":{"summonerName":"${summonerName}","region":"${server}","sQueue":null,"sRole":null,"sChampion":null},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"8ad5d73cd5306b9f5b423a0285e4a078976f125e0424b227e5f244af50954da7"}}}`,
+      body: `{"operationName":"LolProfilePageSummonerInfoQuery","variables":{"gameName":"${summonerName}","tagLine":"${tag}","region":"${server}","sQueue":null,"sRole":null,"sChampion":null},"extensions":{"persistedQuery":{"version":1,"sha256Hash":"69fd82d266137c011d209634e4b09ab5a8c66d415a19676c06aa90b1ba7632fe"}}}`,
       method: "POST",
       mode: "cors",
       credentials: "include",
@@ -33,7 +34,8 @@ export const summonerData = async (summonerName, server) => {
     // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
-  return res.json();
+  const data = await res.json();
+  return data;
 };
 export async function getLatestVersion() {
   const response = await fetch(

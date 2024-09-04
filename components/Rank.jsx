@@ -27,7 +27,6 @@ const Rank = async ({ username, server }) => {
       lol: { player },
     },
   } = await summonerData(username, server);
-  console.log(player.queuesStats);
   return (
     <>
       {player === null || player.queuesStats.items === null ? null : (

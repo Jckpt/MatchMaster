@@ -24,7 +24,8 @@ export const getQueueName = (queueId) => {
 export const parsedParticipant = (participant) => {
   return {
     role: participant.lane,
-    summonerName: participant.summonerName,
+    summonerName: participant.riotIdGameName,
+    tagLine: participant.riotIdTagline,
     championId: participant.championId,
     championLevel: participant.champLevel,
     team: teamColor(participant.teamId),

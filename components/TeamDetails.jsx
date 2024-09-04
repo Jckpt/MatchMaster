@@ -55,6 +55,7 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                 team,
                 kda,
                 summonerName,
+                tagLine,
                 finalBuild,
                 championId,
                 damageTaken,
@@ -82,7 +83,9 @@ const TeamDetails = ({ team, matchResult, championNames, server }) => {
                     championObject={championNames[i]}
                   />
                   <Link
-                    href={`/${server}/${summonerName}`}
+                    href={`/${server}/${encodeURIComponent(
+                      summonerName + "#" + tagLine
+                    )}`}
                     className="flex flex-row text-xs pl-2 hover:text-white"
                   >
                     {summonerName}

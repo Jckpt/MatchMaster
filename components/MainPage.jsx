@@ -5,9 +5,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import logo from "../public/logo.svg";
 import Image from "next/image";
-import useSWR from "swr";
-import { fetcher } from "../utils/utilsFrontend";
-import autoAnimate from "@formkit/auto-animate";
 
 const MainPage = () => {
   const [username, setUsername] = useState("");
@@ -21,16 +18,9 @@ const MainPage = () => {
   };
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      router.push(`${server}/${username}`);
+      router.push(`${server}/${encodeURIComponent(username)}`);
     }
   };
-  const { data, isLoading, error } = useSWR(
-    `/api/challengers/${server}`,
-    fetcher,
-    {
-      revalidateOnFocus: false,
-    }
-  );
 
   return (
     <div className="flex justify-center mb-20 flex-col w-full h-full items-center">
@@ -63,41 +53,11 @@ const MainPage = () => {
               onChange={handleTextChange}
               onKeyDown={handleKeyDown}
             />
-            <ul
-              tabIndex={0}
-              className="dropdown-content md:mt-2 mb-2 menu p-0 shadow bg-base-100 rounded-box w-full backdrop-blur-sm bg-opacity-30"
-            >
-              <li className="pl-2 select-none">
-                {server} | Highest ranked players
-              </li>
-              {isLoading
-                ? Array(5)
-                    .fill()
-                    .map((_, i) => (
-                      <li key={i} className="animate-pulse ">
-                        <div className="rounded-full animate-pulse p-1.5 m-4 w-1/3 bg-gray-200 bg-opacity-30">
-                          <div className="rounded-full "></div>
-                        </div>
-                      </li>
-                    ))
-                : data?.challengers
-                    .filter((challenger) =>
-                      challenger.toLowerCase().includes(username.toLowerCase())
-                    )
-                    .slice(0, 5)
-                    .map((challenger, i) => (
-                      <li key={i}>
-                        <Link href={`/${server}/${challenger}`}>
-                          {challenger}
-                        </Link>
-                      </li>
-                    ))}
-            </ul>
           </div>
         </div>
         <Link
           className="btn w-full md:w-6/12 xl:w-1/12 backdrop-blur-sm bg-opacity-50"
-          href={`/${server}/${username}`}
+          href={`/${server}/${encodeURIComponent(username)}`}
         >
           search
         </Link>

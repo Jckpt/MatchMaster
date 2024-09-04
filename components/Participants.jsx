@@ -5,9 +5,10 @@ import Image from "next/image";
 const Participants = ({ participants, server, championNames }) => {
   return (
     <div className="grid grid-flow-col grid-rows-5 h-[125px]">
-      {participants?.map(({ summonerName, team }, i) => (
+      {participants?.map(({ summonerName, team, tagLine }, i) => (
         <Summoner
           summonerName={summonerName}
+          tagLine={tagLine}
           team={team}
           key={i}
           server={server}
@@ -19,14 +20,21 @@ const Participants = ({ participants, server, championNames }) => {
   );
 };
 
-const Summoner = ({ summonerName, team, server, championNames, i }) => {
+const Summoner = ({
+  summonerName,
+  tagLine,
+  team,
+  server,
+  championNames,
+  i,
+}) => {
   const [championName, version] = getChampionIcon(
     championNames?.participants[i]
   );
   return (
     <Link
       className="pr-1 hidden md:flex flex-row hover:text-white"
-      href={`/${server}/${summonerName}`}
+      href={`/${server}/${encodeURIComponent(summonerName + "#" + tagLine)}`}
     >
       <div className="avatar">
         <div className="w-6 h-6 rounded">

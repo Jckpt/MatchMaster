@@ -1,7 +1,9 @@
 import { getQueueName, parsedParticipant, teamColor } from "./riotPraser";
-export const getSummonerPUUID = async (server, summonerName) => {
+export const getSummonerPUUID = async (server, summonerNameWithTag) => {
+  summonerNameWithTag = decodeURI(summonerNameWithTag);
+  const [summonerName, tagLine] = summonerNameWithTag.split("#");
   const res = await fetch(
-    `https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}`,
+    `https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${summonerName}/${tagLine}`,
     {
       headers: {
         "X-Riot-Token": process.env.RIOT_KEY,
@@ -80,8 +82,27 @@ export async function getChallengers(server) {
     }
   );
   const data = await response.json();
-  const challengers = data.entries.map((challenger) => {
-    return challenger.summonerName;
+  const challengers = await data.entries.map(async (challenger) => {
+    const response = await fetch(
+      `https://${server}.api.riotgames.com/lol/summoner/v4/summoners/${challenger.summonerId}`,
+      {
+        headers: {
+          "X-Riot-Token": process.env.RIOT_KEY,
+        },
+      }
+    );
+    const data = await response.json();
+    const puuid = data.puuid;
+    const puuidFetch = await fetch(
+      `https://europe.api.riotgames.com/riot/account/v1/accounts/by-puuid/${puuid}`,
+      {
+        headers: {
+          "X-Riot-Token": process.env.RIOT_KEY,
+        },
+      }
+    );
+    const summonerData = await puuidFetch.json();
+    return `${summonerData.gameName}#${summonerData.tagLine}`;
   });
   return challengers;
 }

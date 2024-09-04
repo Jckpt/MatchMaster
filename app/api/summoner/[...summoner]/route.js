@@ -13,9 +13,11 @@ export async function GET(request, { params }) {
   const summonerName = params.summoner[1];
   const server = getServer(rawServer);
   const region = getRegion(server);
+
   const puuid = await getSummonerPUUID(server, summonerName);
   if (puuid === undefined)
     return NextResponse.json({ matchesHistory: [], status: 404 });
+
   const matches = await getPlayerMatches(region, puuid, start, 10);
   //loop through matches and get match details using map
   let matchesHistory;
