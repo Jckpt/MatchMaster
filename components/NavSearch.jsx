@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "../utils/baseURL";
 const NavSearch = () => {
   const [username, setUsername] = useState("");
   const [server, setServer] = useState("EUW");
@@ -15,7 +16,7 @@ const NavSearch = () => {
   };
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
-      router.push(`${server}/${username}`);
+      router.push(`${BASE_URL}/${server}/${encodeURIComponent(username)}`);
     }
   };
   return (
