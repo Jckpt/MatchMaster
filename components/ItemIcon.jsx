@@ -13,7 +13,7 @@ const ItemIcon = ({ item, matchResult, size }) => {
           alt=""
           samesite="None"
           className={`rounded w-${size / 4} h-${size / 4}`}
-          src={`https://cdn.mobalytics.gg/assets/lol/images/dd/game-items/${item}.png`}
+          src={`https://opgg-static.akamaized.net/meta/images/lol/latest/item/${item}.png`}
           height={size}
           width={size}
         />
