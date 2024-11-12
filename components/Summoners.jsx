@@ -9,7 +9,7 @@ const Summoners = ({ spell, size }) => {
           <img
             alt=""
             samesite="Strict"
-            src={`https://cdn.mobalytics.gg/assets/lol/images/dd/summoner-spells/${spell}.png`}
+            src={`https://blitz-cdn.blitz.gg/blitz/lol/summoner-spells/${spell}.webp`}
             style={{ height: size, width: size }}
             className="rounded m-0.5"
           />
