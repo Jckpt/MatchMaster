@@ -5,7 +5,7 @@ const Runes = ({ IDs, subStyle, size }) => {
       <div className={`avatar m-0.5`} style={{ height: size, width: size }}>
         <img
           alt=""
-          src={`https://cdn.mobalytics.gg/assets/lol/images/perks/${IDs[0]}.png`}
+          src={`https://blitz-cdn.blitz.gg/runes/all/${IDs[0]}.webp`}
           height={size}
           width={size}
         />
@@ -13,7 +13,7 @@ const Runes = ({ IDs, subStyle, size }) => {
       <div className={`avatar m-0.5`} style={{ height: size, width: size }}>
         <img
           alt=""
-          src={`https://cdn.mobalytics.gg/assets/lol/images/perks/${subStyle}.png`}
+          src={`https://blitz-cdn.blitz.gg/runes/all/${subStyle}.webp`}
           height={size}
           width={size}
         />
